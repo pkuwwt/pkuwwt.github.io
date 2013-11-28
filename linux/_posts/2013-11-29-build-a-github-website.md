@@ -25,14 +25,14 @@ Github提供了网页托管服务，但需要注意的是，此托管服务愿�
 
 
 ## Github的网络服务设置
-Github仓库的网络设置很方便，只需要修改仓库根目录下的CNAME文件即可。CNAME中只有一行文字，即你的域名，Github只允许绑定到一个域名上，如果想多个域名指向同一个仓库，则只能用域名转发了。比如，在我的pkuwwt.github.com仓库下的CNAME中添加一行
+Github仓库的网络设置很方便，只需要修改仓库根目录下的`CNAME`文件即可。`CNAME`中只有一行文字，即你的域名，Github只允许绑定到一个域名上，如果想多个域名指向同一个仓库，则只能用域名转发了。比如，在我的pkuwwt.github.com仓库下的`CNAME`中添加一行
 {% highlight bash %}
 www.pkuwwt.tk
 {% endhighlight %}
 
-这里的[www.pkuwwt.tk]是我刚申请的域名的子域名。
+这里的[www.pkuwwt.tk](http://www.pkuwwt.tk)是我刚申请的域名的子域名。
 
-修改完CNAME之后10分钟才会生效。
+修改完`CNAME`之后10分钟才会生效。
 
 ## 域名服务的DNS设置
 在[dot.tk](http://dot.tk)网上修改域名[pkuwwt.tk](http://pkuwwt.tk)的DNS设置。如果是主域名，使用设置
@@ -128,7 +128,7 @@ $ git push origin master
 
 之后，会提示你输用户名和密码。
 
-需要注意的是，小心你的CNAME被覆盖了。另外，有一个.gitignore文件可以防止某些文件和目录被加到git仓库中去。比如一个典型的.gitignore文件是
+需要注意的是，小心你的`CNAME`被覆盖了。另外，有一个`.gitignore`文件可以防止某些文件和目录被加到git仓库中去。比如一个典型的`.gitignore`文件是
 {% highlight bash %}
 _site
 *.swp
