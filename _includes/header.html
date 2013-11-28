@@ -1,0 +1,30 @@
+<header>
+  <div class="grid title">
+    <h1>
+      <a href="{{ site.baseurl }}/">Tiwb</a>
+    </h1>
+    <h2>消遣时光</h2>
+  </div>
+  <div class="grid">
+    <nav class="main-nav">
+      {% assign category = page.categories | join: ' ' | split: ' ' | last %}
+      <ul>
+        <li class="{% if category == 'linux' %}current{% endif %}">
+        <a href="{{ site.baseurl }}/linux">Linux</a>
+        </li>
+        <li class="{% if category == 'visualiation' %}current{% endif %}">
+        <a href="{{ site.baseurl }}/visualization">可视化</a>
+        </li>
+        <li class="{% if category == 'python' %}current{% endif %}">
+        <a href="{{ site.baseurl }}/python">python</a>
+        </li>
+        <li class="{% if category == 'blog' %}current{% endif %}">
+        <a href="{{ site.baseurl }}/blog">日志</a>
+        </li>
+        <li class="{% if category == 'about' %}current{% endif %}">
+        <a href="{{ site.baseurl }}/about">关于我</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
