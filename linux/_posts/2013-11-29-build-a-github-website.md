@@ -44,7 +44,7 @@ www.pkuwwt.tk
 如果是子域名，使用设置
 
   * CNAME Record
-  * hostname: blog.pkuwwt.tk
+  * hostname: www.pkuwwt.tk
   * IP Address: pkuwwt.github.io
 
 使用pkuwwt.github.io的好处在于，它会自动更新IP地址。
