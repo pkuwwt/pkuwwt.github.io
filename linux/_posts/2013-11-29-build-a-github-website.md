@@ -19,16 +19,18 @@ Github提供了网页托管服务，但需要注意的是，此托管服务愿�
 
 那么Github的限制条件就是，Project仓库只能绑定主域名(domain)，而User/Orgnaization仓库既可以绑定主域名，又可以绑定子域名(subdomain)。比如pkuwwt.tk是主域名，blog.pkuwwt.tk是子域名。因为每个人只有一个User/Orgnaization仓库，因此只能绑定一个子域名。这意味着，一个帐号可以绑定多个主域名，只能绑定一个子域名。
 
-因此，建站策略只能是一个主域名，不使用子域名，用目录结构来对内容进行分类。
+因此，建站策略可以只用一个主域名，不使用子域名，用目录结构来对内容进行分类。
+
+考虑到www.pkuwwt.tk也是子域名，因此可以使用一个主域名一个子域名。Github支持这种建站方案，这样的子域名和主域名都指向同一个页面。
 
 
 ## Github的网络服务设置
 Github仓库的网络设置很方便，只需要修改仓库根目录下的CNAME文件即可。CNAME中只有一行文字，即你的域名，Github只允许绑定到一个域名上，如果想多个域名指向同一个仓库，则只能用域名转发了。比如，在我的pkuwwt.github.com仓库下的CNAME中添加一行
 {% highlight bash %}
-pkuwwt.tk
+www.pkuwwt.tk
 {% endhighlight %}
 
-这里的[pkuwwt.tk]是我刚申请的域名，而且是主域名。当然，我绑定到一个子域名上也是可以的。
+这里的[www.pkuwwt.tk]是我刚申请的域名的子域名。
 
 修改完CNAME之后10分钟才会生效。
 
@@ -45,15 +47,15 @@ pkuwwt.tk
   * hostname: blog.pkuwwt.tk
   * IP Address: pkuwwt.github.io
 
-使用pkuwwt.github.io的好处在于，它会自动更新IP地址。但对于我的这个建站来说意义不大，因为只被允许使用一个子域名，我干脆就不用。
+使用pkuwwt.github.io的好处在于，它会自动更新IP地址。
 
 另外，查看一个域名的DNS可以使用命令
 {% highlight bash %}
 $ dig pkuwwt.tk +nostats +nocomments +nocmd
+$ dig www.pkuwwt.tk +nostats +nocomments +nocmd
 {% endhighlight %}
 
 详细过程参考[Github文档](https://help.github.com/categories/20/articles)。
-
 
 现在，你应该可以访问[pkuwwt.tk](http://pkuwwt.tk)了。但是如果显示404页面，要么是你没有等10分钟，要么是你没有index.html文件，要么是DNS设置错了。
 
