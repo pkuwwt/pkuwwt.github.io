@@ -35,13 +35,13 @@ www.pkuwwt.tk
 修改完`CNAME`之后10分钟才会生效。
 
 ## 域名服务的DNS设置
-在[dot.tk](http://dot.tk)网上修改域名[pkuwwt.tk](http://pkuwwt.tk)的DNS设置。如果是主域名，使用设置
+在[dot.tk](http://dot.tk)网上修改域名[pkuwwt.tk](http://pkuwwt.tk)的DNS设置。对于主域名，使用设置
 
   * A Record
   * hostname: pkuwwt.tk
   * IP Address: 204.232.175.78
 
-如果是子域名，使用设置
+对于子域名，使用设置
 
   * CNAME Record
   * hostname: www.pkuwwt.tk
@@ -58,6 +58,8 @@ $ dig www.pkuwwt.tk +nostats +nocomments +nocmd
 详细过程参考[Github文档](https://help.github.com/categories/20/articles)。
 
 现在，你应该可以访问[pkuwwt.tk](http://pkuwwt.tk)了。但是如果显示404页面，要么是你没有等10分钟，要么是你没有index.html文件，要么是DNS设置错了。
+
+另外，[www.pkuwwt.tk](http://www.pkuwwt.tk)和[pkuwwt.github.com](http://pkuwwt.github.com)也应该指向同样的页面。
 
 ## 选择静态网页生成工具
 因为Github并不提供主机服务，动态网页是没指望了，服务端编程和数据库更是没影，因此只能使用静态网页。
