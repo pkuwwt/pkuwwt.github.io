@@ -1,7 +1,7 @@
 ---
 vim: wrap expandtab ft=markdown
 layout: blog
-title: 最简单的python服务器
+title: python解释器中的自动补全
 ---
 
 只需要启动时执行一条命令即可
