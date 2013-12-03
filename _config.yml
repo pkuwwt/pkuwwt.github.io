@@ -1,7 +1,8 @@
 pygments: true
 permalink: /:categories/:year-:month-:day-:title/
 relative_permalinks: false
-markdown: rdiscount
+markdown: kramdown
+#markdown: rdiscount
 #markdown: redcarpet
 baidu_tongji_id: 3F3d35307f190110ab5152701a7ffb30f7
 baseurl: 
