@@ -44,7 +44,7 @@ $\mathbf{B}$向量和可见性值，只依赖于模型而不依赖于光照环�
 
 **列表17-1. 计算环境光遮蔽相关数值的基本算法**
 
-{% highlight text %}
+{% highlight text  linenos %}
 For each triangle {
     Compute center of triangle
     Generate set of raysover the hemisphere there
@@ -65,7 +65,7 @@ For each triangle {
 
 **列表17-2. 用拒绝采样法计算随机方向的算法**
 
-{% highlight cpp %}
+{% highlight cpp linenos %}
 while(true) {
     // random float between -1 and 1
     x = RandomFloat(-1,1); 
@@ -140,7 +140,7 @@ while(true) {
 
 **列表17-3. 使用可见性和环境映射渲染的着色器**
 
-{% highlight cpp %}
+{% highlight cpp  linenos %}
 half4 main(half3 B : TEXCOORD0,
         half accessibility : TEXCOORD1,
         uniform sampler2D envlatlong) : COLOR
@@ -158,7 +158,7 @@ half4 main(half3 B : TEXCOORD0,
 
 **列表17-4. `latlong()`函数定义**
 
-{% highlight cpp %}
+{% highlight cpp  linenos %}
 #define PI 3.1415926
 
 half2 latlong(half3 v) {
@@ -174,7 +174,7 @@ half2 latlong(half3 v) {
 
 **列表17-4. `computeBlur()`函数定义**
 
-{% highlight cpp %}
+{% highlight cpp  linenos %}
 void computeBlur(half2 uv,
         half accessibility,
         out half2 blurx,
