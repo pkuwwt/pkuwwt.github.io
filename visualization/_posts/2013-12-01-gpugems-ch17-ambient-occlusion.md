@@ -14,27 +14,6 @@ Simon Green
 
 NVIDIA
 
-本文中翻译所涉及到的词汇:
-
-  * ambient occlusion: 环境光遮蔽
-  * occlusion: 单独情况下翻译成遮挡
-  * map: 映射
-  * environment map: 环境映射
-  * shadown: 阴影
-  * shading: 阴影，阴影计算。
-  * shading model: 光照模型
-  * specular reflection: 镜面反射
-  * glossy surface: 光滑表面(并不一定是镜面)
-  * diffuse surface: 漫反射表面
-  * spherical harmonics: 球谐
-  * diffuse: 漫反射
-  * accessibility: 可见性。虽然字面上是可访问性，但是意义上更接近可见性，即visibility。
-  * mesh: 网格
-  * accumulation buffer: 累积缓冲区
-  * light: 光源
-  * lighting: 光照
-  * illumination: 光照
-
 近来，实时计算机图形学社区开始尝试通过复杂的环境光映射来获得具有真实感的光照，而不再是传统的少数几个简单光源。在真实世界里，光实际上是从不同的角度照射到表面上的，而不仅仅是几个点光源或方向光源，这种假设会显著影响视觉效果。人们开发了很多技术来捕捉真实世界中的光照（比如电影中），使得渲染出的光照看起来像是出自于真实环境一样，这样相似性使得图形学可以和真实的场景无缝集成。对于完全合成的场景，可利用场景的环境映射来给场景内的角色或对象增加光照，从而改善渲染结果的真实感。它们不光是用映射处理镜面反射，还用于计算光滑和漫反射表面的光照。
 
 本章描述了一种简单的实时计算环境光的技术。此技术仅限于散射表面，但已经完全满足实时用途。此外，这个方法可以准确表达阴影，因为在计算每个顶点上的阴影时考虑到了遮挡的几何体。虽然，相比于最新研究成果中复杂的方法，此技术得到的阴影值仍存在很多偏差，但是它的优点是非常容易实现。（它可以实现一个可用的光照模拟，至少你不需要理解和实现球谐软件库！）本文方法在很多情形下的结果都不错，而且可以在现代的硬件平台上交互式运行。
@@ -42,6 +21,7 @@ NVIDIA
 此方法基于一种视点无关的预处理过程，即用一个光线跟踪器来计算遮挡信息，然后用这些信息实时快速模拟环境中的漫反射阴影。这个技术最初由Hayden Landis(2002)和他在Industrial Light & Magical的同事开发；它已经被用于ILM公司的许多产品中（用的是非实时渲染器）。
 
 ## 17.1 概述
+
 我们在这里所说的环境光技术已经命名为__环境光遮蔽__光照。想象这个方法的一种方式是模型表面上有一个"聪明"的环境光项，它的值随着外部环境的可见程度来决定。另外一种方式是，可以将其视为一种散射项，它有效表达入射光线的复杂分布情况。在这一章里，我们将坚持第二种理解方式。
 
 这个技术背后的基本思想是，如果我们预处理一个模型，计算每个点上看外部环境的情况（而不是计算外部环境被遮挡的情况），然后，我们在渲染时使用这个信息来计算散射光照项。渲染的结果是，模型的缝隙中的部分显得更暗，而暴露的部分接受了更多的光照因而显得更亮。这种结果显然比传统的标准光照模型更具有真实感。
@@ -50,6 +30,7 @@ NVIDIA
 
 
 ## 17.2 预处理过程
+
 给定一个任意的模型，本技术需要知道模型上每个顶点上的两个量：
 
   - "可见性(accessibility)"：顶点上的半球的哪些部分未被模型的其它部位遮挡
@@ -244,4 +225,28 @@ void computeBlur(half2 uv,
   * Debevec, Paul. 1998. "Rendering Synthetic Objects into Real Scenes: Bridging Traditional and Image-Based Graphics with Global Illumination and High Dynamic Range Photography." In Proceedings of SIGGRAPH 98, pp. 189–198. 对于环境光的兴趣很大程度始于这篇文章。
   * Cohen, Michael, and Donald P. Greenberg. 1985. "The Hemi-Cube: A Radiosity Solution for Complex Environments." 这篇文章首先描述了semi-cube算法来计算辐射，这是另外一种预处理遮挡信息的方法，且易于使用图形硬件。
   * 一系列最近的由Ramamoorthi,Hanrahan以及Sloan等人所写的SIGGRAPH文章建立了关于快速环境光照计算的基于球谐的关键数学原理和算法。
+
+
+## 附：翻译对照表
+
+本文中翻译所涉及到的词汇:
+
+  * ambient occlusion: 环境光遮蔽
+  * occlusion: 单独情况下翻译成遮挡
+  * map: 映射
+  * environment map: 环境映射
+  * shadown: 阴影
+  * shading: 阴影，阴影计算。
+  * shading model: 光照模型
+  * specular reflection: 镜面反射
+  * glossy surface: 光滑表面(并不一定是镜面)
+  * diffuse surface: 漫反射表面
+  * spherical harmonics: 球谐
+  * diffuse: 漫反射
+  * accessibility: 可见性。虽然字面上是可访问性，但是意义上更接近可见性，即visibility。
+  * mesh: 网格
+  * accumulation buffer: 累积缓冲区
+  * light: 光源
+  * lighting: 光照
+  * illumination: 光照
 
