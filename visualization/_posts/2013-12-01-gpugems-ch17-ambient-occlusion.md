@@ -1,7 +1,7 @@
 ---
 vim: wrap expandtab ft=markdown
 layout: blog
-title: 第17章 环境光遮蔽[译]
+title: GPU Gems - 第17章 环境光遮蔽[译]
 ---
 
 [**Source**](http://http.developer.nvidia.com/GPUGems/gpugems_ch17.html)
