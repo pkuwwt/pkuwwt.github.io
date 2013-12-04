@@ -1,7 +1,7 @@
 ---
 vim: wrap expandtab ft=markdown
 layout: blog
-title: 建站过程
+title: Github建站过程
 ---
 
 ## 申请域名
@@ -137,5 +137,5 @@ _site
 .DS_Store
 {% endhighlight %}
 
-上传成功之后，我也就拥有了一个装逼的个人网站了。虽然没有备案，随时会被墙掉。
+上传成功之后，我也就拥有了一个装逼的个人网站了。虽然没有备案，随时会被墙掉。另外，不要域名不设置DNS也是可以的，比如[pkuwwt.github.com](http://pkuwwt.github.com)本身就是一个网站了。
 
