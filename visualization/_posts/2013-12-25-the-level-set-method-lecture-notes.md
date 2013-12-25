@@ -9,7 +9,7 @@ MathJax.Hub.Config({
 		  });
 </script>
 
-[The Level Set Method - Lecture Notes](http://persson.berkeley.edu/pub/persson05levelset.pdf)
+[The Level Set Method - Lecture Notes](http://persson.berkeley.edu/pub/persson05levelset.pdf), [copy](../img/levelset2/persson05levelset.pdf)
 
 作者：Per-Olof Persson
 
