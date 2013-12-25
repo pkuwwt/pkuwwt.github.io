@@ -75,7 +75,7 @@ $$
 
 $$
 \begin{equation}
-\kappa = \nabla\cdot\frac{\nabla\phi}{\vert\nabla\phi\vert} = \frac{\phi_{xx}\phi_y^2-2\phi_y\phi_x\phi_{xy} + \phi_{yy}\phi_x^2}{\phi_x^2+\phi_y^2}^{3/2}
+\kappa = \nabla\cdot\frac{\nabla\phi}{\vert\nabla\phi\vert} = \frac{\phi_{xx}\phi_y^2-2\phi_y\phi_x\phi_{xy} + \phi_{yy}\phi_x^2}{(\phi_x^2+\phi_y^2)^{3/2}}
 \end{equation}
 $$
 
