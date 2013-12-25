@@ -146,8 +146,8 @@ $$
 \begin{equation}
 \begin{array}{rcl}
 \nabla_{ijk}^+ &=& [\max(D^{-x}\phi_{ijk}^n, 0)^2 + \min(D^{+x}\phi_{ijk}^n, 0)^2 + \\
-&=& \max(D^{-y}\phi_{ijk}^n, 0)^2 + \min(D^{+y}\phi_{ijk}^n, 0)^2 + \\
-&=& \max(D^{-z}\phi_{ijk}^n, 0)^2 + \min(D^{+z}\phi_{ijk}^n, 0)^2]^{1/2}
+&& \max(D^{-y}\phi_{ijk}^n, 0)^2 + \min(D^{+y}\phi_{ijk}^n, 0)^2 + \\
+&& \max(D^{-z}\phi_{ijk}^n, 0)^2 + \min(D^{+z}\phi_{ijk}^n, 0)^2]^{1/2}
 \end{array}
 \end{equation}
 $$
@@ -156,8 +156,8 @@ $$
 \begin{equation}
 \begin{array}{rcl}
 \nabla_{ijk}^- &=& [\min(D^{-x}\phi_{ijk}^n, 0)^2 + \max(D^{+x}\phi_{ijk}^n, 0)^2 + \\
-&=& \min(D^{-y}\phi_{ijk}^n, 0)^2 + \max(D^{+y}\phi_{ijk}^n, 0)^2 + \\
-&=& \min(D^{-z}\phi_{ijk}^n, 0)^2 + \max(D^{+z}\phi_{ijk}^n, 0)^2]^{1/2}
+&& \min(D^{-y}\phi_{ijk}^n, 0)^2 + \max(D^{+y}\phi_{ijk}^n, 0)^2 + \\
+&& \min(D^{-z}\phi_{ijk}^n, 0)^2 + \max(D^{+z}\phi_{ijk}^n, 0)^2]^{1/2}
 \end{array}
 \end{equation}
 $$
