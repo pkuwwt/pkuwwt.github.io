@@ -269,5 +269,5 @@ $$
 ## 其它相关资源
 
   - [Second Partial Derivative Test](http://en.wikipedia.org/wiki/Second_partial_derivative_test)
-  - [Second Order Partial Derivatives; the Hessian Matrix; Minima and Maxima](http://www.math.vt.edu/people/dlr/m2k_svb11_hesian.pdf), [local](../img/m2k_svb11_hesian.pdf)
+  - [Second Order Partial Derivatives; the Hessian Matrix; Minima and Maxima](http://www.math.vt.edu/people/dlr/m2k_svb11_hesian.pdf), [copy](../img/m2k_svb11_hesian.pdf)
 
