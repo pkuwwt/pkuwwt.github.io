@@ -4,7 +4,7 @@ title: 函数的关键点上的海森(Hessian)矩阵的含义[译]
 ---
 
 
-原题：[Meaning of the Hessian of a function in a critical point](http://www.math.ethz.ch/~petrache/hessian.pdf)
+原题：[Meaning of the Hessian of a function in a critical point](http://www.math.ethz.ch/~petrache/hessian.pdf), [copy](../img/hessian.pdf)
 
 
 作者：Mircea Petrache
@@ -264,3 +264,10 @@ $$
 再一次，答案不是那么简单，因为对于一些多变量函数而言，可能一些方向是局部最小，而另外一些方向是局部最大，这种情况是不会发生在单变量函数上的，因为最坏的情形也只不过是缩点(flex)，如$f(x)=x^3$在0处。$Hf(0)$可能在某个方向上$\lambda_i>0$，而在另外一个方向上$\lambda_j<0$，因此，我们只改变$y_i$时，$f$在0处延此方向最小，而只改变$y_j$时，$f$在0处延此方向最大。这样的关键点称为鞍点。
 
 当某个$\lambda_i=0$时，说明二阶泰勒多项式不中心预测$f$延这个方向的行为，需要考虑更好的近似(与1维情形类似)。
+
+
+## 其它相关资源
+
+  - [Second Partial Derivative Test](http://en.wikipedia.org/wiki/Second_partial_derivative_test)
+  - [Second Order Partial Derivatives; the Hessian Matrix; Minima and Maxima](http://www.math.vt.edu/people/dlr/m2k_svb11_hesian.pdf), [local](../img/m2k_svb11_hesian.pdf)
+
