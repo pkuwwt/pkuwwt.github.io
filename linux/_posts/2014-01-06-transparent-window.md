@@ -19,27 +19,29 @@ transset-df在一些源中没有，因此需要自己编译(源码简单，make�
 ### openbox下的使用
 先保证在`~/.config/openbox/autostart.sh`中已经启动了xcompmgr。比如
 
-    ( xcompmgr -Ss -n -Cc -fF -I-10 -O-10 -D1 -t-3 -l-4 -r4 ) &
+{% highlight bash %}
+( xcompmgr -Ss -n -Cc -fF -I-10 -O-10 -D1 -t-3 -l-4 -r4 ) &
+{% endhighlight %}
 
 修改`~/.config/openbox/rc.xml`中的contex项下面的鼠标绑定内容。
 {% highlight xml %}
 <context name=”Titlebar”>
 <!– 使用transset-df设置窗口透明效果 –>
-	<mousebind button=”C-Middle” action=”Click”>
-		<action name=”Execute”>
-			<execute>transset-df -p</execute>
-		</action>
-	</mousebind>
-	<mousebind button=”C-Up” action=”Click”>
-		<action name=”Execute”>
-			<execute>transset-df -p --inc 0.2 </execute>
-		</action>
-	</mousebind>
-	<mousebind button=”C-Down” action=”Click”>
-		<action name=”Execute”>
-			<execute>transset-df -p -m 0.2 --dec 0.2</execute>
-		</action>
-	</mousebind>
+    <mousebind button=”C-Middle” action=”Click”>
+        <action name=”Execute”>
+            <execute>transset-df -p</execute>
+        </action>
+    </mousebind>
+    <mousebind button=”C-Up” action=”Click”>
+        <action name=”Execute”>
+            <execute>transset-df -p --inc 0.2 </execute>
+        </action>
+    </mousebind>
+    <mousebind button=”C-Down” action=”Click”>
+        <action name=”Execute”>
+            <execute>transset-df -p -m 0.2 --dec 0.2</execute>
+        </action>
+    </mousebind>
 {% endhighlight %}
 
 这样，你就可以在窗口标题栏上按Ctrl+中键切换透明度了，Ctrl+向上滚动增加透明度，Ctrl+向下滚动减少透明度。
@@ -50,12 +52,12 @@ devilspie支持自动绑定某类窗口，即窗口启动时会触发后台devil
 {% highlight lisp %}
 ( if
   ( or
-	( contains ( window_class ) "Gvim" )
-	( contains ( application_name ) "mirage" )
-	( contains ( application_name ) "chrome" )
+    ( contains ( window_class ) "Gvim" )
+    ( contains ( application_name ) "mirage" )
+    ( contains ( application_name ) "chrome" )
   )
   ( begin
-	( spawn_async (str "transset-df -i " (window_xid) " 0.85" ))
+    ( spawn_async (str "transset-df -i " (window_xid) " 0.85" ))
   )
   )
 {% endhighlight %}
@@ -73,7 +75,9 @@ devilspie -a &
 ## Windows下窗口透明效果设置
 Windows系统没有提供工具修改窗口透明度，但第三方工具可以，它们是AutoIt和AutoHotKey。以AutoIt为例，代码是
 
-    WinSetTrans("[CLASS:Vim]", "", 170);
+{% highlight bash %}
+WinSetTrans("[CLASS:Vim]", "", 170);
+{% endhighlight %}
 
 AutoIt3提供了工具Au3Info，可以查看窗口以及子窗口的详细信息。上面的代码可以将所有打开的Gvim窗口设置为半透明。透明度值介于0-255之间。
 
