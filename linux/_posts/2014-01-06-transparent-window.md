@@ -3,6 +3,8 @@ layout: page
 title: 关于几种窗口系统的透明效果
 ---
 
+# 关于几种窗口系统的透明效果
+
 最早接触窗口的透明效果是linux下的gnome-terminal，当时就觉得非常好用，结合vim可谓敲字神器。特别是翻译的时候，不需要来回切换，或者各占一边屏幕。gnome-terminal的透明效果设置当然是很简单的，修改其profile即可。
 
 下面分别介绍linux和windows下的透明效果设置。
