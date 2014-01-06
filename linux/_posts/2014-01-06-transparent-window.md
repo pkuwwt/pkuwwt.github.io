@@ -64,7 +64,7 @@ devilspie支持自动绑定某类窗口，即窗口启动时会触发后台devil
   )
 {% endhighlight %}
 
-应该比较好理解，当启动Gvim，mirage或chrome时设置其透明度为0.85。如果确定特定应用的窗口类别或其它属性呢。执行`devilspie -a`，然后启动某个应用，它的属性就会在devilspie的输出中显示出来。或者使用`xprop`也可以确定某个窗口的属性。注意，`transset-df`应该放在系统路径中，或者使用绝对路径。`
+应该比较好理解，当启动Gvim，mirage或chrome时设置其透明度为0.85。如果确定特定应用的窗口类别或其它属性呢。执行`devilspie -a`，然后启动某个应用，它的属性就会在devilspie的输出中显示出来。或者使用`xprop`也可以确定某个窗口的属性。注意，`transset-df`应该放在系统路径中，或者使用绝对路径。
 
 然后，在X启动配置文件`~/.xinitrc`中加入
 {% highlight lisp %}
