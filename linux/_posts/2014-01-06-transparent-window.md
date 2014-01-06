@@ -25,7 +25,7 @@ transset-df在一些源中没有，因此需要自己编译(源码简单，make�
 ( xcompmgr -Ss -n -Cc -fF -I-10 -O-10 -D1 -t-3 -l-4 -r4 ) &
 {% endhighlight %}
 
-修改`~/.config/openbox/rc.xml`中的contex项下面的鼠标绑定内容。
+修改`~/.config/openbox/rc.xml`中的`<context name=”Titlebar”>`项下面的鼠标绑定内容。
 {% highlight xml %}
 <context name=”Titlebar”>
 <!– 使用transset-df设置窗口透明效果 –>
@@ -46,7 +46,7 @@ transset-df在一些源中没有，因此需要自己编译(源码简单，make�
     </mousebind>
 {% endhighlight %}
 
-这样，你就可以在窗口标题栏上按Ctrl+中键切换透明度了，Ctrl+向上滚动增加透明度，Ctrl+向下滚动减少透明度。
+这样，你就可以在窗口标题栏上按`Ctrl+中键`切换透明度了，`Ctrl+向上滚动`增加透明度，`Ctrl+向下滚动`减少透明度。
 
 ### 结合devilspie的使用
 devilspie支持自动绑定某类窗口，即窗口启动时会触发后台devilspie程序的相应行为。devilspie的配置文件在`~/.devilspie/`目录中，比如随便建立一个文件opacity.ds。内容为
@@ -59,12 +59,12 @@ devilspie支持自动绑定某类窗口，即窗口启动时会触发后台devil
     ( contains ( application_name ) "chrome" )
   )
   ( begin
-    ( spawn_async (str "transset-df -i " (window_xid) " 0.85" ))
+    ( spawn_async (str "transset-df -t -i " (window_xid) " 0.85" ))
   )
   )
 {% endhighlight %}
 
-应该比较好理解，当启动Gvim，mirage或chrome时设置其透明度为0.85。如果确定特定应用的窗口类别或其它属性呢。执行`devilspie -a`，然后启动某个应用，它的属性就会在devilspie的输出中显示出来。或者使用`xprop`也可以确定某个窗口的属性。
+应该比较好理解，当启动Gvim，mirage或chrome时设置其透明度为0.85。如果确定特定应用的窗口类别或其它属性呢。执行`devilspie -a`，然后启动某个应用，它的属性就会在devilspie的输出中显示出来。或者使用`xprop`也可以确定某个窗口的属性。注意，`transset-df`应该放在系统路径中，或者使用绝对路径。`
 
 然后，在X启动配置文件`~/.xinitrc`中加入
 {% highlight lisp %}
