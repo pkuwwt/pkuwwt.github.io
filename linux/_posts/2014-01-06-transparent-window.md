@@ -29,18 +29,18 @@ transset-df在一些源中没有，因此需要自己编译(源码简单，make�
 {% highlight xml %}
 <context name=”Titlebar”>
 <!– 使用transset-df设置窗口透明效果 –>
-    <mousebind button=”C-Middle” action=”Click”>
-        <action name=”Execute”>
+    <mousebind button="C-Middle" action="Click">
+        <action name="Execute">
             <execute>transset-df -p</execute>
         </action>
     </mousebind>
-    <mousebind button=”C-Up” action=”Click”>
-        <action name=”Execute”>
+    <mousebind button="C-Up" action="Click">
+        <action name="Execute">
             <execute>transset-df -p --inc 0.2 </execute>
         </action>
     </mousebind>
-    <mousebind button=”C-Down” action=”Click”>
-        <action name=”Execute”>
+    <mousebind button="C-Down" action="Click">
+        <action name="Execute">
             <execute>transset-df -p -m 0.2 --dec 0.2</execute>
         </action>
     </mousebind>
