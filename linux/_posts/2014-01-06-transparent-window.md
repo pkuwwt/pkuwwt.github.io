@@ -28,7 +28,7 @@ transset-df在一些源中没有，因此需要自己编译(源码简单，make�
 修改`~/.config/openbox/rc.xml`中的`<context name=”Titlebar”>`项下面的鼠标绑定内容。
 {% highlight xml %}
 <context name=”Titlebar”>
-<!– 使用transset-df设置窗口透明效果 –>
+    <!-- 使用transset-df设置窗口透明效果 -->
     <mousebind button="C-Middle" action="Click">
         <action name="Execute">
             <execute>transset-df -p</execute>
