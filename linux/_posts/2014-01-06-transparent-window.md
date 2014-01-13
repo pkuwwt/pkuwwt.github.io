@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: blog
 title: 关于几种窗口系统的透明效果
 ---
 
