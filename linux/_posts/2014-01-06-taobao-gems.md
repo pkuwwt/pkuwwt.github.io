@@ -7,9 +7,9 @@ title: 使用淘宝提供的Ruby源
 
 替换源的方法在镜像主页上已经有了，这里只是备份一下。
 
-{% highlight shell %}
-$ gem sources --remove https://rubygems.org/
-$ gem sources -a http://ruby.taobao.org/
-$ gem sources -l
+{% highlight bash %}
+gem sources --remove https://rubygems.org/
+gem sources -a http://ruby.taobao.org/
+gem sources -l
 {% endhighlight %}
 
