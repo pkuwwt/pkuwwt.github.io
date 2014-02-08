@@ -7,7 +7,7 @@ foxit是一个免费的pdf阅读/编辑软件，支持常用的标注功能，�
 
 然而借助于wine，我们也可以在Linux下使用Winodws版的foxit。
 
-官方的foxit安装程序会生成一个路径和文件名有空格的版本，不如使用[免安装版](http://portableapps.com/apps/office/foxit_reader_portable)。
+官方的foxit安装程序会生成一个路径和文件名有空格的版本，而且存储时会出现问题，不如使用[免安装版](http://portableapps.com/apps/office/foxit_reader_portable)。
 
 下载[FoxitReaderPortable_6.1.2.paf.exe](http://portableapps.com/redirect/?a=FoxitReaderPortable&t=http%3A%2F%2Fdownload2.portableapps.com%2Fportableapps%2Ffoxitreaderportable%2FFoxitReaderPortable_6.1.2.paf.exe)之后，用wine运行，安装(解压)至~/Programs/FoxitReaderPortable/。
 
