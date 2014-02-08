@@ -13,7 +13,7 @@ foxit是一个免费的pdf阅读/编辑软件，支持常用的标注功能，�
 
 然后在编辑/usr/bin/foxit文件:
 
-{% highlight %}
+{% highlight bash %}
 	wine ~/Programs/FoxitReaderPortable/FoxitReaderPortable.exe "`winepath -w "$@"`"
 {% endhighlight %}
 
@@ -21,7 +21,7 @@ foxit是一个免费的pdf阅读/编辑软件，支持常用的标注功能，�
 
 现在，就可以用foxit命令来在命令行中打开pdf文件了。比如
 
-{% highlight %}
+{% highlight bash %}
 	foxit ./file\ with\ space1.pdf
 	foxit "./file with space2.pdf"
 {% endhighlight %}
