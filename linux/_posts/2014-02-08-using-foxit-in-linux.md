@@ -14,6 +14,7 @@ foxit是一个免费的pdf阅读/编辑软件，支持常用的标注功能，�
 然后在编辑/usr/bin/foxit文件:
 
 {% highlight bash %}
+	export WINEDEBUG=-all
 	wine ~/Programs/FoxitReaderPortable/FoxitReaderPortable.exe "`winepath -w "$@"`"
 {% endhighlight %}
 
