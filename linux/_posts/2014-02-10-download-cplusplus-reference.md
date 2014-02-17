@@ -19,7 +19,7 @@ wget -r -l 5 -np -k www.cplusplus.com/reference/
 
 这里的`-r`表示递归，`-l`表示递归下载的层次，这里是5层，`-np`表示不下载上层的文件，以免将整个网站都荡下来, `-k`则表示在下载完之后修改网页中的链接，以供本地使用。最后，不要忘了网址最后的斜划线。
 
-结果会得到一个目录www.cplusplus.com。用浏览器访问即可。
+结果会得到一个目录www.cplusplus.com , 用浏览器访问即可。
 
 {% highlight bash %}
 firefox ./www.cplusplus.com/reference/index.html
