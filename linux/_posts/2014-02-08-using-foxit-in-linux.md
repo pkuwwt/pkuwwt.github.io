@@ -1,5 +1,6 @@
 ---
 layout: blog
+comments: true
 title: 在Linux下使用wine+foxit
 ---
 

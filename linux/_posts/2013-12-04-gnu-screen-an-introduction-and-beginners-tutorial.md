@@ -1,6 +1,7 @@
 ---
 vim: wrap expandtab ft=markdown
 layout: blog
+comments: true
 title: GNU Screen--介绍和初学者指南[译]
 ---
 

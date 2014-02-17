@@ -1,5 +1,6 @@
 ---
 layout: blog
+comments: true
 title: 用wget下载C++的手册
 ---
 

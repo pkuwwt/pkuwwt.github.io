@@ -1,6 +1,8 @@
 ---
 vim: wrap expandtab ft=markdown
 layout: blog
+comments: true
+comments: true
 title: GPU Gems - 第39章 基于纹理的体绘制技术[译]
 ---
 

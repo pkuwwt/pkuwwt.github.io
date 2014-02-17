@@ -1,6 +1,7 @@
 ---
 vim: wrap expandtab ft=markdown
 layout: blog
+comments: true
 title: MathJax使用示例
 ---
 

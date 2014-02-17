@@ -1,6 +1,7 @@
 ---
 vim: wrap expandtab ft=markdown
 layout: blog
+comments: true
 title: 最简单的python服务器
 ---
 

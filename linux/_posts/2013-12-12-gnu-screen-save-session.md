@@ -1,5 +1,6 @@
 ---
 layout: blog
+comments: true
 title: GNU screen 保存会话
 ---
 

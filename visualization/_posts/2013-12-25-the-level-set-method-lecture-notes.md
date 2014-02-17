@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: blog
+comments: true
 title: 层次集方法讲稿[译]
 ---
 

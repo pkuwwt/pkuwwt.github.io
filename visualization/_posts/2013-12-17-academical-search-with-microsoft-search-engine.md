@@ -1,5 +1,7 @@
 ---
 layout: blog
+comments: true
+comments: true
 title: 微软的学术搜索引擎还是很好用的
 ---
 

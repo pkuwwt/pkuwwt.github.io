@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: blog
+comments: true
 title: 可视化数据集
 ---
 

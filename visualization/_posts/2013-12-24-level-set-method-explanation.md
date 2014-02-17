@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: blog
+comments: true
 title: 层次集方法(Level Set Method) -- 解释[译]
 ---
 

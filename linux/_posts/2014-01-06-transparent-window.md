@@ -1,5 +1,6 @@
 ---
 layout: blog
+comments: true
 title: 关于几种窗口系统的透明效果
 ---
 

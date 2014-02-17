@@ -1,5 +1,6 @@
 ---
 layout: blog
+comments: true
 title: 使用淘宝提供的Ruby源
 ---
 

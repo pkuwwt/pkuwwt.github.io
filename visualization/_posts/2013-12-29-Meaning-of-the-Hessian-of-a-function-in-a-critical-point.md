@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: blog
+comments: true
 title: 函数的关键点上的海森(Hessian)矩阵的含义[译]
 ---
 

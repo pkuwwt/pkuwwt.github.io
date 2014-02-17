@@ -1,5 +1,6 @@
 ---
 layout: blog
+comments: true
 title: 在Bash的输入循环中使用readline和历史记录
 ---
 
