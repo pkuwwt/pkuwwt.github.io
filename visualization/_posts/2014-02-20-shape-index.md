@@ -42,3 +42,5 @@ $$
 
   - [Proposition 2(Meusnier Theorem)](http://noodle.med.yale.edu/seminar/shi/lecture4.pdf)
   - [The Shape Index](http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/WORTHINGTON/node6.html)
+  - [Topographic Surface Structure from 2D Images Using Shape-from-Shading. P.L. Worthington, E.R. Hancock.](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.133.3427&rep=rep1&type=pdf)
+
