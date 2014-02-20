@@ -7,8 +7,8 @@ title: 形状指数(shape index)
 
 $$
 \mathcal{H} = \left(\begin{array}{cc}
--(\frac{\partial n}{\partial x})_x & -(\frac{\partial n}{\partial x})_y\\
--(\frac{\partial n}{\partial y})_x & -(\frac{\partial n}{\partial y})_y
+(\frac{\partial n}{\partial x})_x & (\frac{\partial n}{\partial x})_y\\
+(\frac{\partial n}{\partial y})_x & (\frac{\partial n}{\partial y})_y
 \end{array}\right)
 $$
 
