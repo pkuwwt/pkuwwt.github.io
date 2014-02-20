@@ -15,8 +15,8 @@ foxit是一个免费的pdf阅读/编辑软件，支持常用的标注功能，�
 然后在编辑/usr/bin/foxit文件:
 
 {% highlight bash %}
-	export WINEDEBUG=-all
-	wine ~/Programs/FoxitReaderPortable/FoxitReaderPortable.exe "`winepath -w "$@"`"
+export WINEDEBUG=-all
+wine ~/Programs/FoxitReaderPortable/FoxitReaderPortable.exe "`winepath -w "$@"`"
 {% endhighlight %}
 
 注意，上面命令中的两对引号，它们的作用是将Linux下的路径转换为Windows中的路径，并支持带空格的文件名。类似的，其它Windows程序的wine版本存在的带空格文件名不能打开的问题，也可以用这种方式解决。
@@ -24,7 +24,7 @@ foxit是一个免费的pdf阅读/编辑软件，支持常用的标注功能，�
 现在，就可以用foxit命令来在命令行中打开pdf文件了。比如
 
 {% highlight bash %}
-	foxit ./file\ with\ space1.pdf
-	foxit "./file with space2.pdf"
+foxit ./file\ with\ space1.pdf
+foxit "./file with space2.pdf"
 {% endhighlight %}
 
