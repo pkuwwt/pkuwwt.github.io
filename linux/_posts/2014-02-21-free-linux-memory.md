@@ -1,7 +1,7 @@
 ---
 layout: blog
 comments: true
-title: 清理Linux中的不用或缓冲的内存
+title: 清理Linux中的不用内存或缓存
 ---
 
 步骤1: 确认缓存或不用内存，使用如下命令
