@@ -1,5 +1,6 @@
 ---
 layout: blog
+comments: true
 title: 形状指数(shape index)
 ---
 
