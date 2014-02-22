@@ -12,7 +12,7 @@ title: 一个用于寻找文件，并便于打开文件的脚本
 
 脚本中，使用了`-type f`和`-iname`选项，即只寻找规则文件，并不考虑大小写。
 
-{% highlight bash %}
+{% highlight bash linenos %}
 #!/bin/bash
 
 if (( $# < 2 )); then
