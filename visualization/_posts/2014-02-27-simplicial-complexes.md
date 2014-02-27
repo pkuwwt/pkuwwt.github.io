@@ -22,13 +22,13 @@ title: 单纯复形(Simplicial Complexes)[译]
 任意子集$$T\subseteq S$$中的点依然是a.i.，因此$$T$$的凸壳同样是单纯形。具体地说，当$$p_i\in S$$不在$$T$$中时，$$\tau=conv T$$是所有点$$x\in\sigma$$的子集，只不过系数$$\alpha_i=0$$。单纯形$$\tau$$是$$\sigma$$的一个**面(face)**，我们将这种关系记为$$\tau\le\sigma$$。如果$$dim\tau=l$$，则$$\tau$$称为是$$l$$-面。$$\tau=\emptyset$$和$$\tau=\sigma$$是非真面(improper faces)，其它的面都是$$\sigma$$的真面(proper faces)。$$\sigma$$的$$l$$-面的个数等于从$$k+1$$个点中选择$$l+1$$个点的组合数，即
 
 $$
-\begin{pmatrix}k+1\\ l+1)\end{pmatrix} = \frac{(k+1)!}{(l+1)!(k-l)!}
+\begin{pmatrix}k+1\\ l+1\end{pmatrix} = \frac{(k+1)!}{(l+1)!(k-l)!}
 $$
 
 因此总的面的数目是
 
 $$
-\sum_{l=-1}^k\begin{pmatrix}k+1\\ l+1)\end{pmatrix} = 2^{k+1}
+\sum_{l=-1}^k\begin{pmatrix}k+1\\ l+1\end{pmatrix} = 2^{k+1}
 $$
 
 

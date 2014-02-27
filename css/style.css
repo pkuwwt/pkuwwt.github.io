@@ -301,7 +301,8 @@ a:hover {
 
 strong {
   font-weight: 700;
-  color: #ff;
+  //color: #049DCE;
+  color: #000000;
 }
 
 p {
