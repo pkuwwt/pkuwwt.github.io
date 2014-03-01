@@ -13,7 +13,7 @@ title: 几种基本几何预测
 令$$p=(p_x,p_y)$$, $$q=(q_x,q_y)$$，$$r=(r_x,r_y)$$，是平面上的3个点。我们已经证明了
 
 $$
-2\cdot area(\Delta(p,q,r)) = det\begin{pmatrix}
+2\cdot signedarea(\Delta(p,q,r)) = det\begin{pmatrix}
 1 & p_x & p_y \\
 1 & q_x & q_y \\
 1 & r_x & r_y 
@@ -29,7 +29,7 @@ $$
 其实，你以点$$p$$为局部坐标系的原点，则另外两点在此坐标系中的坐标分别为$$(b,b')=(q_x-p_x, q_y-p_y)$$，$$(c,c')=(r_x-p_x,r_y-p_y)$$，上面的行列式中用第二行和第三行送去第一行，显然，结果刚好就等于$$bc'-b'c$$。
 
 $$
-2\cdot area(\Delta(p,q,r)) = det\begin{pmatrix}
+2\cdot signedarea(\Delta(p,q,r)) = det\begin{pmatrix}
 1 & p_x & p_y \\
 0 & q_x-p_x & q_y-p_y \\
 0 & r_x-p_x & r_y-p_y 
@@ -84,7 +84,7 @@ $$
 
 现在，可以得到上述行列式的值为
   
-$$2\cdot area(\Delta(p,q,r))\cdot(L^2-R^2)$$
+$$2\cdot signedarea(\Delta(p,q,r))\cdot(L^2-R^2)$$
 
 其中$$R$$是$$\Delta$$的外接圆的半径，而$$L$$是$$s$$离原点的距离。
 
