@@ -25,6 +25,7 @@ title: Linux下常用工具
   - GNU工具链: gcc/g++/make/automake
   - 跨平台工程管理: cmake
   - 其它语言: java, python
+  - IDE: eclipse
 
 # 图形工具
 
