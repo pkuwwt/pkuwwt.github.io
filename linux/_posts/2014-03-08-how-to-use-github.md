@@ -69,3 +69,5 @@ git remote set-url origin git@github.com:myusername/myrepo.git
 
 然后，一切就都OK了。以后执行`git push origin master`就不用再输命令了，当然换电脑除外(要么重新搞一遍，要么把密钥拷走)。
 
+
+需要注意的是，每个仓库都有https版的链接和ssh版的链接，如果你`git clone`的是https链接，则用ssh时需要显式设置，而如果你`git clone`的本来就是ssh链接，则无需`git remote set-url`。
