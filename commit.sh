@@ -1,7 +1,7 @@
-#!/bin/expect -f
+#!/bin/bash
 
-log_user 0
-spawn git push origin master
+git commit -a
+git push origin master
 
 #expect "Username"
 #send "pkuwwt\r"
