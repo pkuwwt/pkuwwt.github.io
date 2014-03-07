@@ -34,10 +34,10 @@ $$
 
 $$
 Hf(P) := \left(\begin{array}{cccc}
-\frac{\partial^2f}{\partial x_1\partial_1}(P) & \frac{\partial^2f}{\partial x_1\partial_2}(P)  & \cdots & \frac{\partial^2f}{\partial x_1\partial x_n}(P) \\
-\frac{\partial^2f}{\partial x_2\partial_1}(P) & \frac{\partial^2f}{\partial x_2\partial_2}(P)  & \cdots & \frac{\partial^2f}{\partial x_2\partial x_n}(P) \\
+\frac{\partial^2f}{\partial x_1\partial x_1}(P) & \frac{\partial^2f}{\partial x_1\partial x_2}(P)  & \cdots & \frac{\partial^2f}{\partial x_1\partial x_n}(P) \\
+\frac{\partial^2f}{\partial x_2\partial x_1}(P) & \frac{\partial^2f}{\partial x_2\partial x_2}(P)  & \cdots & \frac{\partial^2f}{\partial x_2\partial x_n}(P) \\
 \vdots & \vdots & \ddots & \vdots \\
-\frac{\partial^2f}{\partial x_n\partial_1}(P) & \frac{\partial^2f}{\partial x_n\partial_2}(P)  & \cdots & \frac{\partial^2f}{\partial x_n\partial x_n}(P) 
+\frac{\partial^2f}{\partial x_n\partial x_1}(P) & \frac{\partial^2f}{\partial x_n\partial x_2}(P)  & \cdots & \frac{\partial^2f}{\partial x_n\partial x_n}(P) 
 \end{array}\right).
 $$
 
