@@ -4,7 +4,7 @@ comments: true
 title: LaTeX笔记(texlive)
 ---
 
-# 帮助系统
+## 帮助系统
 texdoc和texdef两条命令。
 {% highlight latex %}
 % documentation for package caption
@@ -13,7 +13,7 @@ texdoc caption
 texdef -t latex -s bibliography
 {% endhighlight %}
 
-# 日常使用
+## 日常使用
 论文中的竖直的beta，而非math模式下的斜体beta
 
 {% highlight latex %}
@@ -35,7 +35,7 @@ This is reference to a picture\ref{fig:pic}.
 {% endhighlight %}
 
 
-# 包介绍
+## 包介绍
 
   * tabu: 将longtable和tabularx结合起来，既可以跨页，又可以控制单元格式
 
