@@ -21,7 +21,7 @@ cd myrepo
 echo "hello world" >myfile.txt
 {% endhighlight %}
 
-生成完成之后，本地仓库并没有意识到`myfile`的存在性(更准确地讲，git已知知道仓库中多了文件，只不过，需要你显式地加进来而已)，因此，需要显式地加入进来
+生成完成之后，本地仓库并没有意识到`myfile`的存在性(更准确地讲，git已经知道仓库中多了文件，只不过，需要你显式地加进来而已)，因此，显式地将新文件加入进来
 
 {% highlight bash %}
 git add myfile.txt
