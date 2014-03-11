@@ -18,7 +18,7 @@ synclient HorizTwoFingerScroll=1
 
 但是重启之后就会回到默认状态，怎么办呢？编写配置文件`/etc/X11/xorg.conf.d/50-synaptics.conf`。内容是
 
-{% highlight txt %}
+{% highlight bash %}
 Section "InputClass"
 	Identifier "touchpad"
 	Driver "synaptics"
