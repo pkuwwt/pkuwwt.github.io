@@ -37,3 +37,6 @@ google一下"volume dataset"就能搜出一大堆。比如
 ## 地形数据
   - [The Virtual Terrain Project](http://vterrain.org/BT/)
   - Level-of-Detail for 3D Graphics这本书维护的[数据链接](http://lodbook.com/terrain/)
+
+## 其它
+  - [VisIt数据](https://wci.llnl.gov/codes/visit/datafiles.html): VisIt列了一些示例数据，比如Silo, ESRI, DEM, NetCDF,FVCOM, CGNS, Protein Data Bank
