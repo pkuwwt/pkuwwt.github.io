@@ -1,4 +1,6 @@
 ---
+layout: blog
+comments: true
 title: 用VTK生成非结构化网格上的矢量场
 ---
 
