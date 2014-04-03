@@ -392,4 +392,4 @@ Plucker坐标是一种表达3维有向线的方法。它构成一个6维齐次�
 ## 参考文献
 
   - 原文 [Ray(/segment)-triangle intersection tests for dummies](http://hugi.scene.org/online/hugi25/hugi%2025%20-%20coding%20corner%20graphics,%20sound%20&%20synchronization%20ken%20ray-triangle%20intersection%20tests%20for%20dummies.htm)
-  - 一篇论文 [ALGORITHMS TO TEST RAY-TRIANGLE INTERSECTION COMPARATIVE STUDY](http://wscg.zcu.cz/wscg2001/Papers_2001/R75.pdf)
+  - 一篇论文 [ALGORITHMS TO TEST RAY-TRIANGLE INTERSECTION COMPARATIVE STUDY, Segura, 1998](http://wscg.zcu.cz/wscg2001/Papers_2001/R75.pdf)
