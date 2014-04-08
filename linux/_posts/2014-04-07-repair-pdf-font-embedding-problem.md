@@ -24,6 +24,8 @@ gs -o "$OUTPUT" -dPDFSETTINGS=/prepress -sDEVICE=pdfwrite "$INPUT"
 
 if (( $# < 2 ));then
 	mv "$OUTPUT" "$INPUT"
+else
+	mv "$OUTPUT" "$2"
 fi
 {% endhighlight %}
 
