@@ -43,6 +43,7 @@ title: Linux下常用工具
   - octave: 和matlab语法类同，有些.m脚本可以直接运行
   - matlab: 不多说，迫不得已用一下
   - kdeedu-math: KDE出了不少好软件，这个数学套装里的kmplot和kalgebra是画函数(2D/3D)图的好手。
+  - maxima: 符号计算软件，Mathematica的前辈。行列式，(非)线性方程组再也不用手算了。它有wx版本，能更好地显示公式。
 
 ## 桌面工具
 
