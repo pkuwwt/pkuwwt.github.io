@@ -42,6 +42,7 @@ title: Linux下常用工具
   - R: 统计类软件，在生物信息学应用最多
   - octave: 和matlab语法类同，有些.m脚本可以直接运行
   - matlab: 不多说，迫不得已用一下
+  - kdeedu-math: KDE出了不少好软件，这个数学套装里的kmplot和kalgebra是画函数(2D/3D)图的好手。
 
 ## 桌面工具
 
