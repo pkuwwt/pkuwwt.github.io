@@ -1,7 +1,7 @@
 ---
 layout: blog
 comments: true
-title: LateX使用方法集锦
+title: LaTeX使用方法集锦
 ---
 
 ## 如何让每一页的`footnote`重新编号
