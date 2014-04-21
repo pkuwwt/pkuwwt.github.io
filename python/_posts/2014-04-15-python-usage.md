@@ -25,3 +25,13 @@ zip(*[(1,2,3),(1,2,3),(1,2,3)])
 {% endhighlight %}
 
 得到的结果是元组的列表，比如`[(1,1,1),(2,2,2)]`。
+
+## 判断操作系统是32位还是64位
+
+{% highlight python %}
+import struct
+print(8*struct.calcsize('P'))
+{% endhighlight %}
+
+或`sys.maxsize > 2**32`, 但只适用于Python2.6以后。
+
