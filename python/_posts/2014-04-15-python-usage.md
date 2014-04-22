@@ -35,3 +35,10 @@ print(8*struct.calcsize('P'))
 
 或`sys.maxsize > 2**32`, 但只适用于Python2.6以后。
 
+## 合并多个list
+{% highlight python %}
+sum([[0,1],[2,3],[4,5]], [])
+{% endhighlight %}
+
+`sum`函数的第2个参数是初值，也就是将列表中的所有元素(也是列表)累加到这个初值上。
+
