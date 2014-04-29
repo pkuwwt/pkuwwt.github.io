@@ -37,9 +37,10 @@ def line_intersect2(v1,v2,v3,v4):
     '''
     judge if line (v1,v2) intersects with line(v3,v4)
     '''
+    d = (v4[1]-v3[1])*(v2[0]-v1[0])-(v4[0]-v3[0])*(v2[1]-v1[1])
+    if -1e-7<d<1e-7: return False
     u = (v4[0]-v3[0])*(v1[1]-v3[1])-(v4[1]-v3[1])*(v1[0]-v3[0])
     v = (v2[0]-v1[0])*(v1[1]-v3[1])-(v2[1]-v1[1])*(v1[0]-v3[0])
-    d = (v4[1]-v3[1])*(v2[0]-v1[0])-(v4[0]-v3[0])*(v2[1]-v1[1])
     if d<0:
         u,v,d= -u,-v,-d
     return (0<=u<=d) and (0<=v<=d)
@@ -125,20 +126,20 @@ def tri_intersect2(t1, t2):
 最后给出一个测试程序，程序中有两个可拖动的三角形，如果三角形相交，则会在标题栏上显示'intersect'，否则显示'non-intersect'。
 {% highlight python %}
 #!/usr/bin/python
-import numpy as np
 from numpy.random import random
-import matplotlib.pyplot as plt
 import matplotlib as mpl
-from matplotlib.patches import RegularPolygon
-from matplotlib.transforms import Transform
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
 
 def line_intersect2(v1,v2,v3,v4):
     '''
     judge if line (v1,v2) intersects with line(v3,v4)
+    http://thirdpartyninjas.com/blog/2008/10/07/line-segment-intersection/
     '''
+    d = (v4[1]-v3[1])*(v2[0]-v1[0])-(v4[0]-v3[0])*(v2[1]-v1[1])
+    if -1e-7<d<1e-7: return False
     u = (v4[0]-v3[0])*(v1[1]-v3[1])-(v4[1]-v3[1])*(v1[0]-v3[0])
     v = (v2[0]-v1[0])*(v1[1]-v3[1])-(v2[1]-v1[1])*(v1[0]-v3[0])
-    d = (v4[1]-v3[1])*(v2[0]-v1[0])-(v4[0]-v3[0])*(v2[1]-v1[1])
     if d<0:
         u,v,d= -u,-v,-d
     return (0<=u<=d) and (0<=v<=d)
@@ -159,6 +160,10 @@ def point_in_triangle2(A,B,C,P):
 def tri_intersect2(t1, t2):
     '''
     judge if two triangles in a plane intersect 
+
+    e.g.
+        tri_intersect2([(0,0),(1,0),(0,1)], [(1,0),(2,0),(1,1)])
+
     '''
     if line_intersect2(t1[0],t1[1],t2[0],t2[1]): return True
     if line_intersect2(t1[0],t1[1],t2[0],t2[2]): return True
@@ -197,7 +202,7 @@ class DraggableTriangles:
         if event.inaxes != self.tri.axes: return
         contains, attrd = self.tri.contains(event)
         if not contains: return
-        x0,y0 = self.tri.xy
+        x0,y0 = self.tri.get_xy().mean(0)
         self.press = x0,y0,event.xdata,event.ydata
     def on_motion(self,event):
         if self.press is None: return
@@ -205,7 +210,8 @@ class DraggableTriangles:
         x0, y0, xpress, ypress = self.press
         dx = event.xdata - xpress
         dy = event.ydata - ypress
-        self.tri.xy = (x0+dx,y0+dy)
+        trans = mpl.transforms.Affine2D().translate(dx,dy)+self.tri.axes.transData
+        self.tri.set_transform(trans)
         self.tri.figure.canvas.draw()
     def on_release(self,event):
         self.press = None
@@ -218,8 +224,8 @@ class DraggableTriangles:
 fig = plt.figure()
 ax = fig.add_subplot(111)
 dtris = []
-tris = [RegularPolygon((random()*4,random()*4), 3, radius=0.8*random()+0.2) 
-        for i in range(2)]
+tris = [Polygon(random((3,2))*4) for i in range(2)]
+
 def on_motion(event):
     t1 = tris[0].get_verts()
     t2 = tris[1].get_verts()
@@ -240,6 +246,8 @@ for tri in tris:
 
 ax.autoscale_view()
 plt.show()
+
+
 {% endhighlight %}
 
 ## 参考文献
