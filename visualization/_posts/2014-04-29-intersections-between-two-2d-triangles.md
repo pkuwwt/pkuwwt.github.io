@@ -30,7 +30,7 @@ $$
 \end{array}
 $$
 
-只需要求$$0\le\lambda_1,\lambda_2\le1$$即可。具体计算时，并不需要真正地把系数求出来，只需要计算出分子分母三个数，然后，比较符号和大小即可。此算法中主要涉及到6次乘法和若干次加法。python代码如下
+只需要求$$0\le\lambda_1,\lambda_2\le1$$即可。具体计算时，并不需要真正地把系数求出来，只需要计算出分子分母三个数，然后，比较符号和大小即可。如果分母为0，说明两条线段平行，如果分子为0，表明两线段交于某一端点。此算法中主要涉及到6次乘法和若干次加法。python代码如下
 
 {% highlight python %}
 def line_intersect2(v1,v2,v3,v4):
@@ -38,7 +38,6 @@ def line_intersect2(v1,v2,v3,v4):
     judge if line (v1,v2) intersects with line(v3,v4)
     '''
     d = (v4[1]-v3[1])*(v2[0]-v1[0])-(v4[0]-v3[0])*(v2[1]-v1[1])
-    if -1e-7<d<1e-7: return False
     u = (v4[0]-v3[0])*(v1[1]-v3[1])-(v4[1]-v3[1])*(v1[0]-v3[0])
     v = (v2[0]-v1[0])*(v1[1]-v3[1])-(v2[1]-v1[1])*(v1[0]-v3[0])
     if d<0:
@@ -142,7 +141,6 @@ def line_intersect2(v1,v2,v3,v4):
     v31 = [v1[0]-v3[0],(v1[1]-v3[1])]
     cross = lambda u,v: u[0]*v[1]-u[1]*v[0]
     d = cross(v12,v34)
-    if -1e-7<d<1e-7: return False
     u = cross(v34,v31)
     v = cross(v12,v31)
     if d<0:
