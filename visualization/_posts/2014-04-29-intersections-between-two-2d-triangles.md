@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+used3: true
 title: 两个平面三角形的相交测试
 ---
 
@@ -48,12 +49,142 @@ def line_intersect2(v1,v2,v3,v4):
 ## 三角形内部判定
 判别点P是否在三角形ABC内部，最直观的想法是绕三角形逆时针旋转时，判断此点是否在三角形所有边的左侧即可。但这个方法计算量较大，更好的办法是使用重心坐标系(实际上新坐标系原点不在三角形重心上)。具体而言，以A为坐标原点，AC和AB分别坐标系的两个轴(这不是直角坐标系)，只要它们不重合，就可以为空间中任意一点指定一个坐标。在AC轴上的0坐标对应着A点，1坐标对应着C点。同理，AB轴上0对应A，1对应B。另一方面，两个坐标值之和如果都大于等于0，且和小于1，则此点位于三角形内部(或边上)。
 
-那么，现在的问题就变成了，如何求重心坐标。它实际上是将矢量AP分解为平行于AB和AC的两个矢量。令$$AP=\alpha AB + \beta AC$$，则构成一个线性方程组
+那么，现在的问题就变成了，如何求重心坐标。它实际上是将矢量AP分解为平行于AB和AC的两个矢量。下面是用D3写的一个演示图。
+
+<div id="chart1">
+</div>
+<script>
+var dataset = [5,10,15,20,25];
+var w = 300, h=150;
+var A={x:100,y:40,t:"A"}, B={x:200,y:40,t:"B"}, C={x:150,y:120,t:"C"};
+var P = {x:100,y:100,t:"P"};
+var svg = d3.select("#chart1")
+.append("svg:svg")
+.attr("width",w)
+.attr("height",h);
+svg.append("svg:defs").selectAll("marker")
+.data(["suit", "licensing", "resolved"])
+.enter().append("svg:marker")
+.attr("id", String)
+.attr("viewBox", "0 -5 10 10")
+.attr("refX", 8)
+.attr("refY", 0)
+.attr("markerWidth", 6)
+.attr("markerHeight", 6)
+.attr("orient", "auto")
+.append("svg:path")
+.attr("d", "M0,-5L10,0L0,5");
+var lineFunc = d3.svg.line()
+.x(function(d) { return d.x; })
+.y(function(d) { return d.y; })
+.interpolate("linear");
+var line = svg.append("path")
+.attr("d", lineFunc([A,B,C,A]))
+.attr("stroke", "blue")
+.attr("stroke-width", 1)
+.attr("fill", "none");
+var cross = function(u,v) {
+return u.x*v.y-u.y*v.x;
+};
+var dot = function(u,v) {
+return u.x*v.x+u.y*v.y;
+}
+var minus = function(u,v) {
+return {x:u.x-v.x,y:u.y-v.y};
+}
+var decomp = function(A,B,C,P) {
+var v0 = minus(C,A);
+var v1 = minus(B,A);
+var v2 = minus(P,A);
+var dot00 = dot(v0,v0);
+var dot01 = dot(v0,v1);
+var dot02 = dot(v0,v2);
+var dot11 = dot(v1,v1);
+var dot12 = dot(v1,v2);
+var d = (dot00*dot11-dot01*dot01);
+var u = (dot11*dot02-dot01*dot12);
+var v = (dot00*dot12-dot01*dot02);
+return {x:u/d,y:v/d};
+}
+var scale = function(A,B,u) {
+return {x:A.x+u*(B.x-A.x), y:A.y+u*(B.y-A.y)};
+}
+svg.selectAll("text")
+.data([A,B,C])
+.enter()
+.append("text")
+.attr("x", function(d) {return d.x;})
+.attr("y", function(d) {return d.y;})
+.text(function(d) { return d.t;})
+;
+var labelP = svg.append("text")
+.attr("x", P.x)
+.attr("y", P.y)
+.text("P");
+var tmp = decomp(A,B,C,P);
+var u=tmp.x,v=tmp.y;
+var labelu = svg.append("text")
+.attr("x", 0)
+.attr("y", 15)
+.text("u: " + u);
+var labelv = svg.append("text")
+.attr("x", 0)
+.attr("y", 30)
+.text("v: " + v);
+var line2 = svg.append("path")
+.attr("d", lineFunc([A,P]))
+.attr("stroke", "red")
+.attr("stroke-width", 1)
+.attr("fill", "none")
+.attr("marker-end","url(#licensing)");
+var line3 = svg.append("path")
+.attr("d", lineFunc([A,scale(A,C,u)]))
+.attr("stroke", "red")
+.attr("stroke-width", 1)
+.attr("fill", "none")
+.attr("marker-end", "url(#licensing)");
+var line4 = svg.append("path")
+.attr("d", lineFunc([A,scale(A,B,v)]))
+.attr("stroke", "red")
+.attr("stroke-width", 1)
+.attr("fill", "none")
+.attr("marker-end", "url(#licensing)");
+var dashline = svg.append("path")
+.attr("d", lineFunc([scale(A,B,v), P, scale(A,C,u)]))
+.attr("stroke", "red")
+.attr("stroke-dasharray", "5,5")
+.attr("stroke-width", 1)
+.attr("fill", "none");
+svg.on("mousemove", function(){
+P = d3.mouse(this);
+P = {x:P[0],y:P[1]};
+tmp = decomp(A,B,C,P);
+u=tmp.x,v=tmp.y;
+line2.attr("d", lineFunc([A,P]));
+line3.attr("d", lineFunc([A,scale(A,C,u)]));
+line4.attr("d", lineFunc([A,scale(A,B,v)]));
+dashline.attr("d", lineFunc([scale(A,B,v), P, scale(A,C,u)]));
+labelP.attr("x",P.x).attr("y",P.y);
+labelu.text("u: " + u);
+labelv.text("v: " + v);
+if(u>=0 && v>=0 && u+v<=1) {
+labelu.attr("fill","red");
+labelv.attr("fill","red");
+}
+else {
+labelu.attr("fill","black");
+labelv.attr("fill","black");
+}
+}
+);
+</script>
+
+令$$AP=v AB + u AC$$，则构成一个线性方程组
 
 $$
 \begin{array}{rcl}
-x_P-x_A &=& \alpha(x_B-x_A) + \beta(x_C-x_A) \\
-y_P-y_A &=& \alpha(y_B-y_A) + \beta(y_C-y_A) 
+x_P-x_A &=& v(x_B-x_A) + u(x_C-x_A) \\
+y_P-y_A &=& v(y_B-y_A) + u(y_C-y_A) 
 \end{array}
 $$
 
@@ -61,7 +192,7 @@ $$
 
 $$
 \begin{bmatrix}x_B-x_A & x_C-x_A \\ y_B-y_A & y_C-y_A\end{bmatrix} 
-\begin{bmatrix}\alpha \\ \beta\end{bmatrix}
+\begin{bmatrix}v \\ u\end{bmatrix}
 = 
 \begin{bmatrix}x_P-x_A \\ y_P-y_A\end{bmatrix}
 $$
@@ -70,7 +201,7 @@ $$
 
 $$
 \begin{array}{rcl}
-\begin{bmatrix}\alpha \\ \beta\end{bmatrix} &=& \frac{1}{(x_B-x_A)(y_C-y_A)-(x_C-x_A)(y_B-y_A)}
+\begin{bmatrix}v \\ u\end{bmatrix} &=& \frac{1}{(x_B-x_A)(y_C-y_A)-(x_C-x_A)(y_B-y_A)}
 \begin{bmatrix}y_C-y_A& -(x_C-x_A) \\-(y_B-y_A)  &x_B-x_A  \end{bmatrix} 
 \begin{bmatrix}x_P-x_A \\ y_P-y_A\end{bmatrix} \\
 	&=& \frac{1}{(x_B-x_A)(y_C-y_A)-(x_C-x_A)(y_B-y_A)}
