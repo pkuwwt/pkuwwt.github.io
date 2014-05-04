@@ -16,7 +16,7 @@ title: Linux下用wvdial为3G上网卡拨号
 
 只需要三步。第一步是生成配置文件，第二步修改DNS，第三步执行`wvdial`。
 
-配置文件需要在root权限下执行命令`wvdialconf`，它会生成配置文件`/etc/wvdial.conf`文件。你需要改这个文件内容。默认情况下，`Phone`，`Username`，`Password`为空，你需要补上，且`Password`不能为空，可随便选一个字符串。下面是联通3G的配置文件。
+配置文件需要在root权限下执行命令`wvdialconf`，它会生成配置文件`/etc/wvdial.conf`文件。你需要改这个文件内容。默认情况下，`Phone`，`Username`，`Password`为空，你需要补上，且`Password`不能为空，可随便选一个字符串。下面是联通3G的配置文件。其中的`Auto Reconnect`和`Auto DNS`也是额外加的选项，分别表示自动重连和自动处理DNS。
 
 {% highlight kconfig %}
 [Dialer Defaults]
