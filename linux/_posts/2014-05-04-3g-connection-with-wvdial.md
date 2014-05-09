@@ -14,7 +14,7 @@ title: Linux下用wvdial为3G上网卡拨号
 
 网上有人介绍了一些用NetworkManager之类的图形界面工具，但经过实验，发现还是`wvdial`这个纯情命令行工具好用。
 
-只需要三步。第一步是生成配置文件，第二步修改DNS，第三步执行`wvdial`。
+只需要三步。第一步是生成配置文件，第二步执行`wvdial`，第三步确认DNS被修改了。
 
 配置文件需要在root权限下执行命令`wvdialconf`，它会生成配置文件`/etc/wvdial.conf`文件。你需要改这个文件内容。默认情况下，`Phone`，`Username`，`Password`为空，你需要补上，且`Password`不能为空，可随便选一个字符串。下面是联通3G的配置文件。其中的`Auto Reconnect`和`Auto DNS`也是额外加的选项，分别表示自动重连和自动处理DNS。
 
@@ -33,12 +33,18 @@ Auto Reconnect = on
 Auto DNS = on
 {% endhighlight %}
 
-生成配置文件之后，就可以执行`wvdial`了，但是此时仍然不能上网，因为还需要设置DNS。也就是修改`/etc/resolv.conf`文件内容。
+生成配置文件之后，就可以执行`wvdial`了，正常情况下，它会自动修改`/etc/resolv.conf`文件，将两DNS地址写到此文件中。但是也有可能它没有自动这么做，这时你就需要手动添加。这两个DNS地址可以在wvdial的输出中找到。
 
 {% highlight kconfig %}
 nameserver 202.106.195.68
 nameserver 202.106.46.151
 {% endhighlight %}
 
-最后，就是执行`wvdial`了。
+或者可以尝试如下解决方案(假定ppp版本为2.4.5)
+
+{% highlight bash %}
+cp /usr/share/doc/ppp-2.4.5/scripts/ip-up.local.add /etc/ppp/ip-up.local
+cp /usr/share/doc/ppp-2.4.5/scripts/ip-down.local.add /etc/ppp/ip-down.local
+{% endhighlight %}
+
 
