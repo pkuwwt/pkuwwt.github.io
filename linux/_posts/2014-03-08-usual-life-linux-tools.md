@@ -36,6 +36,8 @@ title: Linux下常用工具
   - ImageMagick: 图片处理命令行工具
   - dia: 类似于visio，可以画流程图和UML
   - plantuml: 用脚本画UML
+  - tikz/pgf: 基本latex的矢量线条图
+  - sketch: 基于命令的3维矢量草图
 
 ## 数学工具
 
