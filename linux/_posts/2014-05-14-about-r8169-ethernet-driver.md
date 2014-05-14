@@ -6,7 +6,9 @@ title: 关于Linux下有线网卡不能连接的问题
 
 我的Fedora19之前用得好好的，不知从什么时候开始，有线网偶尔会连不上，既开机前网口灯是亮的，一旦启动进入系统，灯立刻会灭，而NetworManager则显示断线。但是，偶尔它又会连上。于是一开始给人造成设备有问题的假象。实际上是r8169驱动的问题。
 
-查看一下网卡类型
+可以看一下`dmesg | grep -i net`和`cat /var/log/message`中相关内容，里面会告诉你关于r8169的加载信息，以及"link down"之类的提示。
+
+为装官方最新驱动，需要查看一下网卡类型
 
 {% highlight bash %}
 lspci | grep -i ethernet
