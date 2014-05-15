@@ -38,6 +38,7 @@ title: Linux下常用工具
   - plantuml: 用脚本画UML
   - tikz/pgf: 基本latex的矢量线条图
   - sketch: 基于命令的3维矢量草图
+  - openscad: 基于脚本的3维工程制图，语法很简单
 
 ## 数学工具
 
