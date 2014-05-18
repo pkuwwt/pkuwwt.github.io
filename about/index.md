@@ -5,5 +5,5 @@ title: About
 categories: about
 ---
 
-Contact: wwthunan@gmail.com
+Contact: wwthunan at gmail dot com
 
