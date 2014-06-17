@@ -7,7 +7,8 @@ comments: true
 基本上有两种方案，一种是用convert，一种是用gs
 {% highlight bash %}
 convert *.jpg output.pdf
-gs -sDEVICE=pdfwrite -o $out /usr/share/ghostscript/*/lib/viewjpeg.ps -c "(1.jpg) viewJPEG showpage (2.jpg) viewJPEG showpage"
+gs -sDEVICE=pdfwrite -o $out /usr/share/ghostscript/*/lib/viewjpeg.ps \
+	-c "(1.jpg) viewJPEG showpage (2.jpg) viewJPEG showpage"
 {% endhighlight %}
 
 但是convert有时候得到的pdf居然打不开，因此，只能使用gs了。下面是写的一个脚本。首先用ImageMagick的convert工具转换成jpeg，因为gs不能处理所有类型的图片。然后，用gs命令生成pdf。
