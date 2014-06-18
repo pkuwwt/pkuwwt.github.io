@@ -40,7 +40,7 @@ www.pkuwwt.tk
 
   * A Record
   * hostname: pkuwwt.tk
-  * IP Address: 207.97.227.245
+  * IP Address: 204.232.175.78
 
 对于子域名，使用设置
 
