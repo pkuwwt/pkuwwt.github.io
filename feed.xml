@@ -4,7 +4,7 @@ layout: none
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<updateDate>{{site.time|date "%Y-%m-%d %H:%M:%S"}}</updateDate>
+		<updateDate>{{ site.time | date: "%Y-%m-%d %H:%M:%S" }}</updateDate>
 		<title>{{ site.name | xml_escape }}</title>
 		<description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>		
 		<link>{{ site.url }}</link>
