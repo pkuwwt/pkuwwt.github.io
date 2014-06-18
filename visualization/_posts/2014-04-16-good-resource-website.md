@@ -8,7 +8,8 @@ title: 资源网站集锦
 ## 学术书籍文档
 
   - [Libaray Genesis](http://gen.lib.rus.ec): 找罕见了电子书或论文，上这个俄国网站很靠谱
-  - [CiteSeerX](http://citeseerx.ist.psu.edu): 此网站扒了很多论文存档，其实你往往可以通过Google学术搜到它的链接
+  - [CiteSeerX](http://citeseerx.ist.psu.edu): 此网站扒了很多计算机科学方面的论文存档，其实你往往可以通过Google学术搜到它的链接
+  - [arXiv](http://arxiv.org): 物理，数学，计算机科学，量化生物学，量化金融和统计学论文
 
 ## 问答网站
 
