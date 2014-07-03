@@ -28,6 +28,10 @@ title: 资源网站集锦
 
   - [Stack Overflow](http://stackoverflow.com): 编程的人应该都也都应该知道这个网站，网站靠谱(没广告，Mardown支持完美)，用户也靠谱(都是专业人士，极度渴望解决别人的问题)。它还有另外一些同一公司出品的问答网站stackexchange.com，涉及其它方方面，比如TeX，硬件，甚至是英文学习。
 
+## 工具类网站
+
+  - [WebPS](http://www.webps.cn/): 看起来和真的PhotoShop软件一样
+
 
 ## 参考
   - [Resources for Finding and Accessing Scientific Papers](http://www.sciencebuddies.org/science-fair-projects/top_science-fair_finding_scientific_papers.shtml)
