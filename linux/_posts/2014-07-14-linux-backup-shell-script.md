@@ -4,7 +4,7 @@ comments: true
 title: 备份文件Shell脚本
 ---
 
-{% highlight shell %}
+{% highlight bash %}
 #!/bin/bash
 
 # compression_targz bzip2|xz|lzip|lzma|lzop|gzip output inputs... 
@@ -80,5 +80,5 @@ fi
 OUTPUT=`echo $OUTPUT|sed 's/\/*$//g'`
 
 compression $OUTPUT $*
-
 {% endhighlight %}
+
