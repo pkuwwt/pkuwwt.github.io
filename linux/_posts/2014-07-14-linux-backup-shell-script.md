@@ -4,6 +4,8 @@ comments: true
 title: 备份文件Shell脚本
 ---
 
+Linux下经常用到的一个操作是文件打包，而在压缩包文件名中加入时间戳则是一个实用的功能。下面的这个脚本实现了这个功能。
+
 {% highlight bash %}
 #!/bin/bash
 # compression_targz bzip2|xz|lzip|lzma|lzop|gzip output inputs... 
