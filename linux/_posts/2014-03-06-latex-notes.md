@@ -34,6 +34,10 @@ this is upright \textbeta, rather than italic $\beta$
 This is reference to a picture\ref{fig:pic}.
 {% endhighlight %}
 
+## 相关命令
+  * latex: 将tex文件编译成dvi文件，一般会再用dvipdf或dvipdfm转化成pdf文件
+  * dvipdfm: 有时候latex编译出的dvi文件不符合某一页面大小，则可以用类似于`dvipdfm -p a4`命令
+  * pdflatex: 直接从tex生成pdf文件
 
 ## 包介绍
 
