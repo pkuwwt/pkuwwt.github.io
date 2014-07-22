@@ -19,7 +19,7 @@ $$
 其中$X$是$m\times n$矩阵，$Y$是$m\times m$方阵，$Y$在$(a,b)$处是否可逆是判断$(a,b)$邻域内是否存在隐函数的依据。
 
 ## 理解
-假设隐函数存在，则$f(x,y)=f(x,g(x)$，对$x_j$求微分得
+假设隐函数存在，则$f(x,y)=f(x,g(x))$，对$x_j$求微分得
 
 \begin{align*}
 \frac{\partial f}{\partial x_j} &= \frac{\partial f}{\partial x_j}(x,g(x)) + \frac{\partial f}{\partial y}(x,g(x)) \frac{\partial g}{\partial x_j}(x,g(x)) \\
