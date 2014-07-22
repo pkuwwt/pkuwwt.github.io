@@ -23,8 +23,8 @@ $$
 
 \begin{align*}
 \frac{\partial f}{\partial x_j} &= \frac{\partial f}{\partial x_j}(x,g(x)) + \frac{\partial f}{\partial y}(x,g(x)) \frac{\partial g}{\partial x_j}(x,g(x)) \\
-0 &= X + Yg_{x_j}
-g_{x_j} = -Y^{-1}X
+0 &= X + Yg_{x_j} \\
+g_{x_j} &= -Y^{-1}X
 \end{align*}
 
 显然，$Y$必须是可逆矩阵。
