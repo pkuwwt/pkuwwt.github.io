@@ -33,7 +33,7 @@ outline文件的语法很简单，比如
 另外一方面，实际的文件页面数自然也能够唯一地标识页面，但是outline文件中使用的`page-title`。你可以显式地将`page-title`全改成文件页面数。
 {% highlight bash %}
 for (( i=800;i>=1;i-- ));do
-	djvused file.djvu -e "set-page-title $i;save"
+	djvused file.djvu -e "select $i;set-page-title $i;save"
 done
 {% endhighlight %}
 这里假设共有800页。或者，在前面留三页(I,II,III)，然后从第4页起重编号
