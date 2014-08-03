@@ -23,6 +23,7 @@ In most cases, `jar` file is just a package, and a container for classes. For ex
 {% highlight bash %}
 java -cp .:package1.jar:package2.jar Test
 {% endhighlight %}
+Paths or `jar` file specified by `-cp` option can be used as either runtime searching path or compile-time searching path, so you can use it in `javac` command.
 
 If you want to increase size of JVM heap space, you can use `-Xmx` option. And `-Xss` option corresponds to JVM stack size. All these options can be found by `java -h`. An example is 
 {% highlight bash %}
