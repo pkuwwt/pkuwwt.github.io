@@ -9,7 +9,7 @@ Compile a source code, with a name identical to the public class in it, and the 
 javac Test.java
 {% endhighlight %}
 
-If a class contains `main` method, you can run it with
+If a public class contains `main` method, you can run it with
 {% highlight bash %}
 java Test
 {% endhighlight %}
@@ -23,7 +23,7 @@ In most cases, `jar` file is just a package, and a container for classes. For ex
 {% highlight bash %}
 java -cp .:package1.jar:package2.jar Test
 {% endhighlight %}
-Paths or `jar` file specified by `-cp` option can be used as either runtime searching path or compile-time searching path, so you can use it in `javac` command.
+Paths or `jar` file specified by `-cp` option can be used as either runtime searching path or compile-time searching path, so you can use it in `javac` command. `.` means current dir, `:` is path separator.
 
 By the way, if there is a main class in location `dir/Test.class`, you can execute it with 
 {% highlight bash %}
