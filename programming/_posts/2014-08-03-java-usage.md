@@ -25,6 +25,15 @@ java -cp .:package1.jar:package2.jar Test
 {% endhighlight %}
 Paths or `jar` file specified by `-cp` option can be used as either runtime searching path or compile-time searching path, so you can use it in `javac` command.
 
+By the way, if there is a main class in location `dir/Test.class`, you can execute it with 
+{% highlight bash %}
+java -cp dir Test
+{% endhighlight %}
+If you declare `package dir` in `src/Test.java`, you can also execute it by
+{% highlight bash %}
+java dir.Test
+{% endhighlight %}
+
 If you want to increase size of JVM heap space, you can use `-Xmx` option. And `-Xss` option corresponds to JVM stack size. All these options can be found by `java -h`. An example is 
 {% highlight bash %}
 java -Xmx1g -Xss4m Test
