@@ -50,37 +50,37 @@ clean:
 if has("eval") && has("autocmd")
 	func! Abbrev_make()
 		ia <buffer> #m 
-					\BIN=
-					\<CR>STATIC_LIB=
-					\<CR>DYNAMIC_LIB=
-					\<CR>CC=g++
-					\<CR>AR=ar 
-					\<CR>CFLAG=-g -Wall  
-					\<CR>LIB=-lm
-					\<CR>CPP_SRC=$(wildcard *.cpp)
-					\<CR>HEAD_SRC=$(wildcard *.h)
-					\<CR>OBJ=$(CPP_SRC:%.cpp=%.o)
-					\<CR>
-					\<CR>all: ${BIN} ${STATIC_LIB} ${DYNAMIC_LIB}
-					\<CR>
-					\<CR>%.o: %.cpp %.h
-					\<CR>    ${CC} -c ${CFLAG} $< -o $@ 
-					\<CR>${BIN}: ${OBJ} ${HEAD_SRC}
-					\<CR>    ${CC} -o $@ ${OBJ} ${CFLAG} ${LIB}
-					\<CR>${STATIC_LIB}: ${OBJ} ${HEAD_SRC}
-					\<CR>    ${AR} -cvq $@ ${OBJ}  
-					\<CR>${DYNAMIC_LIB}: ${CPP_SRC} ${HEAD_SRC}
-					\<CR>    ${CC} -fPIC -c ${CPP_SRC} ${CFLAG}
-					\<CR>${CC} -shared -o $@ ${OBJ} 
-					\<CR>
-					\<CR>clean:
-					\<CR>    rm -f ${BIN} ${OBJ} ${STATIC_LIB} ${DYNAMIC_LIB}
-					\<CR>
-					\<CR># vim: noexpandtab
+		\BIN=
+		\<CR>STATIC_LIB=
+		\<CR>DYNAMIC_LIB=
+		\<CR>CC=g++
+		\<CR>AR=ar 
+		\<CR>CFLAG=-g -Wall  
+		\<CR>LIB=-lm
+		\<CR>CPP_SRC=$(wildcard *.cpp)
+		\<CR>HEAD_SRC=$(wildcard *.h)
+		\<CR>OBJ=$(CPP_SRC:%.cpp=%.o)
+		\<CR>
+		\<CR>all: ${BIN} ${STATIC_LIB} ${DYNAMIC_LIB}
+		\<CR>
+		\<CR>%.o: %.cpp %.h
+		\<CR>	${CC} -c ${CFLAG} $< -o $@ 
+		\<CR>${BIN}: ${OBJ} ${HEAD_SRC}
+		\<CR>	${CC} -o $@ ${OBJ} ${CFLAG} ${LIB}
+		\<CR>${STATIC_LIB}: ${OBJ} ${HEAD_SRC}
+		\<CR>	${AR} -cvq $@ ${OBJ}  
+		\<CR>${DYNAMIC_LIB}: ${CPP_SRC} ${HEAD_SRC}
+		\<CR>	${CC} -fPIC -c ${CPP_SRC} ${CFLAG}
+		\<CR>${CC} -shared -o $@ ${OBJ} 
+		\<CR>
+		\<CR>clean:
+		\<CR>	rm -f ${BIN} ${OBJ} ${STATIC_LIB} ${DYNAMIC_LIB}
+		\<CR>
+		\<CR># vim: noexpandtab
 	endfunc
 	augroup abbreviation
-		au!
-		au Filetype make :call Abbrev_make()
+	au!
+	au Filetype make :call Abbrev_make()
 	augroup END
 endif
 {% endhighlight %}
