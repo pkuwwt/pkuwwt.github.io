@@ -38,7 +38,7 @@ clean:
     rm -f ${BIN} ${OBJ} ${STATIC_LIB} ${DYNAMIC_LIB}
 
 # vim: noexpandtab
-{% endlighlight %}
+{% endhighlight %}
 
 使用方法很简单，如果要生成可执行文件，给`BIN`变量赋值即可，如果要生成静态库，给`STATIC_LIB`变量赋值，如果要生成动态库，给`DYNAMIC_LIB`变量赋值即可。显然，可以同时生成一个静态库和动态库，但静态库或动态库不能与可执行文件同时生成。
 
@@ -83,5 +83,5 @@ if has("eval") && has("autocmd")
 		au Filetype make :call Abbrev_make()
 	augroup END
 endif
-{% endlighlight %}
+{% endhighlight %}
 
