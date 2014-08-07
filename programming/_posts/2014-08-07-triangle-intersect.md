@@ -11,7 +11,6 @@ from numpy.random import random
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
-
 def line_intersect2(v1,v2,v3,v4):
     '''
     judge if line (v1,v2) intersects with line(v3,v4)
@@ -27,7 +26,6 @@ def line_intersect2(v1,v2,v3,v4):
     if d<0:
         u,v,d= -u,-v,-d
     return (0<=u<=d) and (0<=v<=d)
-
 def point_in_triangle2_v1(A,B,C,P):
     '''
     http://www.blackpawn.com/texts/pointinpoly/default.html
@@ -47,7 +45,6 @@ def point_in_triangle2_v1(A,B,C,P):
     if d<0:
         u,v,d = -u,-v,-d
     return u>=0 and v>=0 and (u+v) <= d
-
 def point_in_triangle2(A,B,C,P):
     v0 = [C[0]-A[0], C[1]-A[1]]
     v1 = [B[0]-A[0], B[1]-A[1]]
@@ -59,15 +56,11 @@ def point_in_triangle2(A,B,C,P):
     if d<0:
         u,v,d = -u,-v,-d
     return u>=0 and v>=0 and (u+v) <= d
-
-
 def tri_intersect2(t1, t2):
     '''
     judge if two triangles in a plane intersect 
-
     e.g.
         tri_intersect2([(0,0),(1,0),(0,1)], [(1,0),(2,0),(1,1)])
-
     '''
     if line_intersect2(t1[0],t1[1],t2[0],t2[1]): return True
     if line_intersect2(t1[0],t1[1],t2[0],t2[2]): return True
@@ -89,7 +82,6 @@ def tri_intersect2(t1, t2):
     inTri = inTri and point_in_triangle2(t2[0],t2[1],t2[2], t1[2])
     if inTri == True: return True
     return False
-
 class DraggableTriangles:
     def __init__(self,tri):
         self.tri = tri
@@ -130,12 +122,10 @@ class DraggableTriangles:
         self.tri.figure.canvas.mpl_disconnect(self.cidpress)
         self.tri.figure.canvas.mpl_disconnect(self.cidrelease)
         self.tri.figure.canvas.mpl_disconnect(self.cidmotion)
-
 fig = plt.figure()
 ax = fig.add_subplot(111)
 dtris = []
 tris = [Polygon(random((3,2))*4) for i in range(2)]
-
 def on_motion(event):
     t1 = tris[0].get_verts()
     t2 = tris[1].get_verts()
@@ -143,17 +133,13 @@ def on_motion(event):
         ax.set_title('intersect')
     else:
         ax.set_title('non-intersect')
-
 fig.canvas.mpl_connect('motion_notify_event', on_motion)
-
-
 for tri in tris:
     tri.set_color((random(),random(),random()))
     ax.add_patch(tri)
     dtri = DraggableTriangles(tri)
     dtri.connect()
     dtris.append(dtri)
-
 ax.autoscale_view()
 plt.show()
 {% endhighlight %}
