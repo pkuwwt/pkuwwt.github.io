@@ -72,3 +72,5 @@ int main(int argc, char* argv[]){
 }
 {% endhighlight %}
 
+参考文献: [How to print function pointers with cout?](http://stackoverflow.com/questions/2064692/how-to-print-function-pointers-with-cout)
+
