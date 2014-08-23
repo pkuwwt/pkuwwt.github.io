@@ -9,7 +9,7 @@ native2ascii是Java自带的一个工具，可以在中文和Unicode码的ASCII�
 
 Uniocde转中文字符
 {% highlight bash %}
-echo "%B2%CD%B9%DD" >origin.txt
+echo "\u6e38\u620f\u73a9\u5bb6" >origin.txt
 native2ascii -reverse -encoding GB2312 origin.txt cn.txt
 {% endhighlight %}
 上述命令将`origin.txt`中的Unicode记号转为中文文本文件`cn.txt`，其编码是`GB23112`，当然选择其它文本编码也是可以的，比如`UTF8`。
