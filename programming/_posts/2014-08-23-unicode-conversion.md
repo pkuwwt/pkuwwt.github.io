@@ -22,3 +22,14 @@ native2ascii -encoding Uniocde cn.txt unicode.txt
 你很有可能发现，上述过程中，`origin.txt`和`unicode.txt`的内容是不一样的。这是因为我们人为指定了编码。如果都不要`-encoding`属性，则`native2ascii`与`native2ascii -reverse`是完全互逆的。
 
 
+## 网址中的中文解码
+假设网址为`http://index.baidu.com/Industry/?word=%CD%F2%BF%C6`。这里面的`%CD%F2%BF%C6`是GBK编码。因此，解码很简单
+
+{% highlight bash %}
+echo -e `echo %CD%F2%BF%C6 | sed 's,%,\\\\x,g'` | iconv -f gbk -
+{% endhighlight %}
+结果是
+{% highlight bash %}
+万科
+{% endhighlight %}
+
