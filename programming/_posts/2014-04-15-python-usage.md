@@ -42,3 +42,15 @@ sum([[0,1],[2,3],[4,5]], [])
 
 `sum`函数的第2个参数是初值，也就是将列表中的所有元素(也是列表)累加到这个初值上。
 
+## itertools
+获得1到9的数字字符的长度大于4的所有组合
+{% highlight python %}
+from itertool import *
+iterlst = chain(*(permutation('123456789', i) for i in range(4,10)))
+for i in iterlst:
+    print i
+{% endhighlight %}
+`permutation`类的参数是一个"列表"和一个表示长度的整数，即由"列表"生成指定长度的所有排列。而`chain`类将多个"列表"合成一个"列表"。这里的"列表"实际上指的是可遍历对象(iterable)，即实现了`__iter__`方法的对象。
+
+无论是`chain`类还是`permutation`类，都是一次性的，访问一次之后就到底了。
+
