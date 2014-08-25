@@ -50,7 +50,7 @@ iterlst = chain(*(permutation('123456789', i) for i in range(4,10)))
 for i in iterlst:
     print i
 {% endhighlight %}
-`permutation`类的参数是一个"列表"和一个表示长度的整数，即由"列表"生成指定长度的所有排列。而`chain`类将多个"列表"合成一个"列表"。这里的"列表"实际上指的是可遍历对象(iterable)，即实现了`__iter__`方法的对象。
+`permutation`类的参数是一个"列表"和一个表示长度的整数，即由"列表"生成指定长度的所有排列。而`chain`类将多个"列表"合成一个"列表"。这里的"列表"实际上指的是可遍历对象(iterable)，即实现了`__iter__`方法的对象。`*`运算是将一个可遍历对象"解开"，即将其所有元素变成一个函数的参数。
 
 无论是`chain`类还是`permutation`类，都是一次性的，访问一次之后就到底了。
 
