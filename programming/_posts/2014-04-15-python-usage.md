@@ -54,3 +54,6 @@ for i in iterlst:
 
 无论是`chain`类还是`permutation`类，都是一次性的，访问一次之后就到底了。
 
+## else
+python中的`else`使用非常频繁，而且可以和`for`和`while`搭配使用，循环正常执行完成(没有`break`)时，会执行配套的`else`下的语句。
+
