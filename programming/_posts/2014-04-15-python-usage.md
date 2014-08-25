@@ -45,7 +45,7 @@ sum([[0,1],[2,3],[4,5]], [])
 ## itertools
 获得1到9的数字字符的长度大于4的所有组合
 {% highlight python %}
-from itertool import *
+from itertools import *
 iterlst = chain(*(permutation('123456789', i) for i in range(4,10)))
 for i in iterlst:
     print i
