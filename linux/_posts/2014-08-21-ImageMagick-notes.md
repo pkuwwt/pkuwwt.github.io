@@ -10,3 +10,8 @@ title: ImageMagick使用笔记
 convert orgin.png -transparent white trans.png
 {% endhighlight %}
 
+替换图像中的颜色，比如将所有的黑色换成黄色
+{% highlight bash %}
+convert input.png -fill yellow -opaque black output.png
+{% endhighlight %}
+
