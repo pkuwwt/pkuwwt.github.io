@@ -57,3 +57,10 @@ for i in iterlst:
 ## else
 python中的`else`使用非常频繁，而且可以和`for`和`while`搭配使用，循环正常执行完成(没有`break`)时，会执行配套的`else`下的语句。
 
+## list的list合并成一个list
+比如将`l=[[1,2],[3,4],[5,6]]`变成`[1,2,3,4,5,6]`
+
+{% highlight python %}
+[item for sublist in l for item in sublist]
+{% endhighlight %}
+
