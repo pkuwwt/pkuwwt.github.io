@@ -20,4 +20,13 @@ import SimpleHTTPServer
 SimpleHTTPServer.test()
 {% endhighlight %}
 
+## Bash脚本
+为方便使用，可在`~/.bashrc`中加入如下函数
+{% highlight bash %}
+# usage: 
+#     simpleserver [port]
+function simpleserver() {
+    python -m SimpleHTTPServer ${1:-8080}
+}
+{% endhighlight %}
 
