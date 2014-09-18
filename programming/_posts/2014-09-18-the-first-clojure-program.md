@@ -14,7 +14,7 @@ LISP如何牛逼好像离我们的生活比较远，但是基于Java的Clojure�
 
     (<CompilerException java.lang.IllegalArgumentException: fns taking primitives support only 4 or fewer args>)
 
-设计者这样搞自然有其用意。不过没关系，把`draw-tree`的打包成一个列表即可。然后，又遇到一个局部变量和全局变量的问题，`(def angle (nth arguments 0))`得到的全局变量，想要局部变量还只能用`(let [arg1 val1 arg2 val2] exp1 exp2)`。
+设计者这样搞自然有其用意。不过没关系，把`draw-tree`的参数打包成一个列表即可。然后，又遇到一个局部变量和全局变量的问题，`(def angle (nth arguments 0))`得到的全局变量，想要局部变量还只能用`(let [arg1 val1 arg2 val2] exp1 exp2)`。
 
 {% highlight lisp %}
 (import '(javax.swing JFrame JPanel )
