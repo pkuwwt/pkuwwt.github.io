@@ -59,7 +59,7 @@ LISP如何牛逼好像离我们的生活比较远，但是基于Java的Clojure�
 (run)
 {% endhighlight %}
 
-执行`clojure fractal-tree.clj`就得到了如下结果
+[源码可在此下载](../img/fractal-tree.clj)。执行`clojure fractal-tree.clj`就得到了如下结果
 
 ![](../img/fractal-tree.png)
 
