@@ -61,5 +61,5 @@ title: Linux下常用工具
 ## 网络软件
 
   - 浏览器: chrome虽然耗资源，但还是比firefox华丽很多
-  - 下载: wget, axel。BT可用transmission，ed2k可用amule，但是俱往矣，现在有百度云了。wget最好用的功能是扒网站：`wget -mk -w 30 -e robots=off --user-agent="Mozilla/4.5 (X11; U; Linux x86_64; en-US)" http://xxx.xxx.com`或`wget -np -r -l 4 robots=off --user-agent="Mozilla/4.5 (X11; U; Linux x86_64; en-US)" http://xxx.xxx.com`。
+  - 下载: wget, axel, aria2。BT可用transmission，ed2k可用amule，但是俱往矣，现在有百度云了。wget最好用的功能是扒网站：`wget -mk -w 30 -e robots=off --user-agent="Mozilla/4.5 (X11; U; Linux x86_64; en-US)" http://xxx.xxx.com`或`wget -np -r -l 4 robots=off --user-agent="Mozilla/4.5 (X11; U; Linux x86_64; en-US)" http://xxx.xxx.com`。wget可以续传，但是不能分段下载。axel可分段，但不能续传。aria2既能续传，又能分段。
 
