@@ -54,6 +54,14 @@ for i in iterlst:
 
 无论是`chain`类还是`permutation`类，都是一次性的，访问一次之后就到底了。
 
+`itertools.product`是另外一个有用的工具，它表示数学上的笛卡尔乘积，具体而言，是让两个列表中的元素构成所有可能的组合。
+{% highlight python %}
+import itertools
+pairs = list(itertools.product([1,2,3],[4,5]))
+print pairs.index((2,4))
+{% endhighlight %}
+
+
 ## else
 python中的`else`使用非常频繁，而且可以和`for`和`while`搭配使用，循环正常执行完成(没有`break`)时，会执行配套的`else`下的语句。
 
