@@ -22,5 +22,5 @@ Zotero有一个功能是标签着色功能。右边面板上有标签(tag)管理
 # 同步
 你需要先注册一个Zotero帐号，然后，简单设置一下就可以将文献信息同步到Zotero服务器上了。但注意，Zotero的帐号只有有限的空间(100M)，附件还是不要存到上面。
 
-要想把附件也同步到云端，需要找一个支持WebDAV的云空间。国内目前只有[坚果云](http://jianguoyun.com)支持。其完整链接格式是`https://dav.jianguoyun.com/dav/DavStore/zotero`。其中，`DavStore`是你自己新建的同步文件夹(根目录，默认只有一个My Nutstore的文件夹)。当然，你还要在坚国云的设置中新建一个WebDAV应用，应用的密码就是Zotero中用到的密码。坚果云一个月限流量(上传1G，下载3G)，对论文来说够用了。
+要想把附件也同步到云端，需要找一个支持WebDAV的云空间。国内目前只有[坚果云](http://jianguoyun.com)支持。其完整链接格式是`https://dav.jianguoyun.com/dav/DavStore/zotero`。其中，`DavStore`是你自己新建的同步文件夹(根目录，默认只有一个My Nutstore的文件夹)。当然，你还要在坚果云的设置中新建一个WebDAV应用，应用的密码就是Zotero中用到的密码。坚果云一个月限流量(上传1G，下载3G)，对论文来说够用了。
 
