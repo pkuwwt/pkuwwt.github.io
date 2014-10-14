@@ -240,15 +240,15 @@ def tri_intersect2(t1, t2):
     if line_intersect2(t1[1],t1[2],t2[0],t2[1]): return True
     if line_intersect2(t1[1],t1[2],t2[0],t2[2]): return True
     if line_intersect2(t1[1],t1[2],t2[1],t2[2]): return True
-    inTri = True 
-    inTri = inTri and point_in_triangle2(t1[0],t1[1],t1[2], t2[0])
-    inTri = inTri and point_in_triangle2(t1[0],t1[1],t1[2], t2[1])
-    inTri = inTri and point_in_triangle2(t1[0],t1[1],t1[2], t2[2])
+    inTri = False
+    inTri = inTri or point_in_triangle2(t1[0],t1[1],t1[2], t2[0])
+    inTri = inTri or point_in_triangle2(t1[0],t1[1],t1[2], t2[1])
+    inTri = inTri or point_in_triangle2(t1[0],t1[1],t1[2], t2[2])
     if inTri == True: return True
-    inTri = True
-    inTri = inTri and point_in_triangle2(t2[0],t2[1],t2[2], t1[0])
-    inTri = inTri and point_in_triangle2(t2[0],t2[1],t2[2], t1[1])
-    inTri = inTri and point_in_triangle2(t2[0],t2[1],t2[2], t1[2])
+    inTri = False
+    inTri = inTri or point_in_triangle2(t2[0],t2[1],t2[2], t1[0])
+    inTri = inTri or point_in_triangle2(t2[0],t2[1],t2[2], t1[1])
+    inTri = inTri or point_in_triangle2(t2[0],t2[1],t2[2], t1[2])
     if inTri == True: return True
     return False
 {% endhighlight %}

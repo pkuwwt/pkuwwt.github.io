@@ -10,4 +10,7 @@ ls | sed 's/^/touch /g' | source /dev/stdin
 source <(ls | sed 's/^/touch /g')
 {% endhighlight %}
 
-
+进入前一个当前目录
+{% highlight shell %}
+cd -
+{% endhighlight %}
