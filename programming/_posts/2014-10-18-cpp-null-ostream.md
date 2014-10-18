@@ -24,7 +24,7 @@ public:
     NulOStream() : std::ostream( this ) {}
     NulStreambuf* rdbuf() { return this; }
 };
-{% endlighlight %}
+{% endhighlight %}
 
 # Reference 
 
