@@ -47,9 +47,11 @@ Juniors部分比较特殊，很多外国人喜欢在名字中的`Jr.`之前加�
 
 第一种方式最常用，但是如果有Juniors部分或没有von部分时，则考虑使用后两种。
 
+## 中文拼音
 
 如果是一个中国人的拼音按照英文的约定来，`Mao Zedong`一般要写成`Mao, Ze-Dong`，然后文献中的格式就变成了`Ze-Dong Mao`或`Z. D. Mao`。显然，并不是所有中国学者都按照遵守这个约定。
 
+## first name的首字母缩写
 
 另外一个问题是，如何让latex自动将first name首字母缩写呢，要么手动改成`Mao Z. D.`，注意有两个空格。要么自己写一个bst文件。具体步骤是
 
@@ -61,7 +63,9 @@ Juniors部分比较特殊，很多外国人喜欢在名字中的`Jr.`之前加�
 
 这里的`ff`表示完整的first name, `f.`则是取首字母的first name，注意后面加了个点，`vv`表示`Von part`, `ll`表示last name, `jj`表示Juniors后缀。
 
+另外，注意`named.bst`来源于`beebe`包，而使用`named.bst`又需要包`jneurosci`包。
+
 ### 参考文献
   - [only-authors-initials-in-bibtex-natbib-using-named-style](http://tex.stackexchange.com/questions/36660/only-authors-initials-in-bibtex-natbib-using-named-style)
-  - [](http://nwalsh.com/tex/texhelp/bibtx-23.html)
+  - [Bibtex Names](http://nwalsh.com/tex/texhelp/bibtx-23.html)
 
