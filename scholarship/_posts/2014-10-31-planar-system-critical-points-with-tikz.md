@@ -34,13 +34,13 @@ The code is
 }
 \end{scope}
 % center
-\begin{scope}[xshift=3cm,yshift=0cm,scale=0.5,decoration={markings,mark=at position 0.5 with{\arrow{stealth reversed}}}]
+\begin{scope}[xshift=3cm,yshift=0cm,scale=0.05,decoration={markings,mark=at position 0.5 with{\arrow{stealth reversed}}}]
 \draw (-1,0)--(1,0);
 \draw (0,-1)--(0,1);
 \begin{scope}[rotate=-50]
-\draw[postaction={decorate}] (0,0) circle(0.2 and 0.4);
-\draw[postaction={decorate}] (0,0) circle(0.4 and 0.6);
-\draw[postaction={decorate}] (0,0) circle(0.6 and 1.2);
+\draw[postaction={decorate}] (0,0) circle(2 and 4);
+\draw[postaction={decorate}] (0,0) circle(4 and 6);
+\draw[postaction={decorate}] (0,0) circle(6 and 2);
 \end{scope}
 \end{scope}
 % unstable node
@@ -158,4 +158,6 @@ After exporting from `ktikz`, the result is
 ![](../img/critical_classfication.png)
 
 The result is satisfying, however, it takes me a lot of time to adjust the coordinates. Maybe using parameterized curve will be a better choice.
+
+And one lesson from this example is that you should always use big enough(or normal) coordinates to draw curves(e.g. circles) and then scale it to smaller one as required when you use decoration.
 
