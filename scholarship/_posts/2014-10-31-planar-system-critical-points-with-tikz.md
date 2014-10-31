@@ -155,7 +155,7 @@ The code is
 
 After exporting from `ktikz`, the result is 
 
-[]!(../img/critical_classfication.png)
+![](../img/critical_classfication.png)
 
 The result is satisfying, however, it takes me a lot of time to adjust the coordinates. Maybe using parameterized curve will be a better choice.
 
