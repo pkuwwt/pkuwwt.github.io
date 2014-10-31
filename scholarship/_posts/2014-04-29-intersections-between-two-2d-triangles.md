@@ -54,7 +54,6 @@ def line_intersect2(v1,v2,v3,v4):
 <div id="chart1">
 </div>
 <script>
-var dataset = [5,10,15,20,25];
 var w = 300, h=150;
 var A={x:100,y:40,t:"A"}, B={x:200,y:40,t:"B"}, C={x:150,y:120,t:"C"};
 var P = {x:100,y:100,t:"P"};

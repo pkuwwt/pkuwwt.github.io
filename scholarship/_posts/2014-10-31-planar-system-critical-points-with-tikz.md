@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+used3: true
 title: draw critical points classification of planar system using tikz
 ---
 
@@ -158,6 +159,115 @@ After exporting from `ktikz`, the result is
 ![](../img/critical_classfication.png)
 
 The result is satisfying, however, it takes me a lot of time to adjust the coordinates. Maybe using parameterized curve will be a better choice.
+
+The main point in this example is to use `\draw (P0) to[out=angle1, in=angle2] (P1)` syntax to draw any smooth curves with tangent angle at each control point. `angle1` means tangent algle of curve `P0-P1` at point `P0` pointing to `P1`, and `angle2` means tangent angle at `P1` pointing to `P0`.
+
+<div id="vis">
+<style>
+.curve, .line , .dash, .arc {
+fill: none;
+stroke-width: 1px;
+}
+.curve {
+stroke: red;
+stroke-width: 3px;
+}
+.line, .arc{
+stroke: white;
+stroke-width: 1px;
+}
+.dash {
+stroke: white;
+stroke-width: 1px;
+stroke-dasharray: 5,5;
+}
+</style>
+<script>
+var w = 300, h = 180;
+var A = {x:100,y:60,t:"P0"};
+var B = {x:200,y:70,t:"P1"};
+var M1 = {x:130,y:130,t:"M1"};
+var M2 = {x:170,y:130,t:"M2"};
+var A1 = {x:150, y:60, t:"A1"};
+var B1 = {x:250, y:70, t:"B1"};
+var level = 20;
+var svg = d3.select("#vis").append("svg:svg")
+		.attr("width", w)
+		.attr("height", h);
+function x(d) { return d.x; }
+function y(d) { return h-d.y; }
+var lineFunc = d3.svg.line().x(x).y(y);
+function interpolate(points, ratio) {
+	if(arguments.length < 2 || ratio==undefined) ratio = 0.5;
+	var r = [];
+	r.push(points[0]);
+	for(var i=1; i<points.length; i++) {
+		var p0 = points[i-1], p1 = points[i];
+		r.push({x:p0.x*(1-ratio)+p1.x*ratio, y:p0.y*(1-ratio)+p1.y*ratio});
+	}
+	r.push(points[points.length-1]);
+	return r;
+}
+function getBezierCurve(points, level, ratio) {
+	if(arguments.length < 2 || ratio==undefined) ratio = 0.5;
+	var curve = points;
+	for(var i=0;i<level;i++) {
+		curve = interpolate(curve, ratio);
+	}
+	return curve;
+}
+function addArc(pos, startAngle, endAngle, innerRadius, outerRadius) {
+	var arc = d3.svg.arc()
+		.innerRadius(innerRadius)
+		.outerRadius(outerRadius)
+		.startAngle(startAngle)
+		.endAngle(endAngle);
+	return svg.append("path")
+		.attr("class", "arc")
+		.attr("d", arc)
+		.attr("transform", "translate(" + x(pos) + "," + y(pos) + ")");
+}
+function getLineAngle(p1, p2) {
+	var dx=x(p2)-x(p1), dy=y(p2)-y(p1);
+	return Math.atan2(dy,dx);
+}
+function addAngleMark(center, p1, p2) {
+	var angle1=getLineAngle(center, p1) + Math.PI/2.0;
+	var angle2=getLineAngle(center, p2) + Math.PI/2.0;
+	console.log(angle1);
+	console.log(angle2);
+	return addArc(center, angle1, angle2, 15,15);
+}
+
+var lines = svg.selectAll("path")
+	.data([[A,M1],[B,M2]])
+	.enter()
+	.append("path")
+	.attr("class", "line")
+	.attr("d", lineFunc);
+var dash1 = svg.append("path")
+	.attr("d", lineFunc([A,A1]))
+	.attr("class", "dash");
+var dash2 = svg.append("path")
+	.attr("d", lineFunc([B,B1]))
+	.attr("class", "dash");
+var arc1 = addAngleMark(A, A1, M1);
+var arc2 = addAngleMark(B, B1, M2);
+var curve = svg.selectAll("path.curve")
+	.data([getBezierCurve([A,M1,M2,B],level)])
+	.enter()
+	.append("path")
+	.attr("class", "curve")
+	.attr("d", lineFunc);
+var texts = svg.selectAll("text")
+	.data([A,B])
+	.enter()
+	.append("text")
+	.attr("x", x)
+	.attr("y", function(d) { return y(d)+20; })
+	.text(function(d) { return d.t; });
+</script>
+</div>
 
 And one lesson from this example is that you should always use big enough(or normal) coordinates to draw curves(e.g. circles) and then scale it to smaller one as required when you use decoration.
 
