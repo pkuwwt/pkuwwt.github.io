@@ -14,3 +14,10 @@ source <(ls | sed 's/^/touch /g')
 {% highlight shell %}
 cd -
 {% endhighlight %}
+
+打印数字的16进制
+{% highlight shell %}
+print %x 11
+print %x\\n 11
+{% endhighlight %}
+
