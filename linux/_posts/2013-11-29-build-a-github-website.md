@@ -16,9 +16,12 @@ title: Github建站过程
 
 Github提供了网页托管服务，但需要注意的是，此托管服务原意是为软件项目提供主页支持，并不是用来免费建站的。因此，它附加了一些限制。
 
-如果你的仓库随便起名的话，称为Project Page。如果你的仓库起名为username.github.com(username.github.io好像也可以)的话，称为User/Orgnaization Page。显然Project Page仓库可以有多个，User/Orgnaization Page仓库只能有一个。
+首先，如果你的仓库随便起名的话，称为Project Page。如果你的仓库起名为username.github.com(username.github.io好像也可以)的话，称为User/Orgnaization Page。显然Project Page仓库可以有多个，User/Orgnaization Page仓库只能有一个。
 
-那么Github的限制条件就是，Project仓库只能绑定主域名(domain)，而User/Orgnaization仓库既可以绑定主域名，又可以绑定子域名(subdomain)。比如pkuwwt.tk是主域名，[www.pkuwwt.tk](http://www.pkuwwt.tk)是子域名。因为每个人只有一个User/Orgnaization仓库，因此只能绑定一个子域名。这意味着，一个帐号可以绑定多个主域名，只能绑定一个子域名。
+不需要额外的域名，github本身就可以挂网站，比如建一个仓库`reposA`，在其中新建一个分支`gh-pages`，在此分支中加一个文件`index.html`，则`your-user-name.github.com/reposA`就可以直接访问了。注意，一般的仓库必要用`gh-pages`分支才能挂网站。对于取名为`your-user-name.github.com`或`your-user-name.github.io`的仓库(你只能建一个，github推荐使用`github.io`)，其网页是挂在`master`分支。
+
+
+Github的另一个限制条件是，Project仓库只能绑定主域名(domain)，而User/Orgnaization仓库既可以绑定主域名，又可以绑定子域名(subdomain)。比如pkuwwt.tk是主域名，[www.pkuwwt.tk](http://www.pkuwwt.tk)是子域名。因为每个人只有一个User/Orgnaization仓库，因此只能绑定一个子域名。这意味着，一个帐号可以绑定多个主域名，只能绑定一个子域名。
 
 因此，建站策略可以只用一个主域名，不使用子域名，用目录结构来对内容进行分类。
 
