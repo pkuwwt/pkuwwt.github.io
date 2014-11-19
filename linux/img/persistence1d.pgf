@@ -1,0 +1,89 @@
+
+\usetikzlibrary{arrows,calc,decorations,decorations.pathmorphing,decorations.pathreplacing}
+
+% \FullSine{(minimum)}{(maximum)}
+% \FullSine{(maximum)}{(minimum)}
+\newcommand{\FullSine}[2]{\draw ($#1!0.5!#2$) sin #1 ($#1!0.5!#2$) sin #2;}
+
+\begin{tikzpicture}[x=2cm,y=2cm]
+\coordinate (O) at (0,0);
+\coordinate (x1) at (2.2,0);
+\coordinate (x2) at (0,2.2);
+% critcal points
+\coordinate (a) at (-0.1,-0.1);
+\coordinate (b) at (0.2,1.6);
+\coordinate (c) at (0.45,0.45);
+\coordinate (d) at (0.8,0.8);
+\coordinate (e) at (1.2,0.2);
+\coordinate (f) at (1.5,1.8);
+\coordinate (g) at (1.8,1);
+\coordinate (h) at (2,2.1);
+% rectangle
+\coordinate (r1) at (-0.1,1.4);
+\coordinate (r2) at (-0.1,0.6);
+\coordinate (r3) at ($(r1)+(2.2,-0.8)$);
+\coordinate (r4) at ($(r1)+(2.2,0)$);
+
+% coords in frame2
+\begin{scope}[xshift=5.5cm]
+\coordinate (O1) at (0,0);
+\coordinate (B) at (0.2,1.6);
+\coordinate (B0) at (0.2,0.2);
+\coordinate (D) at (0.45,0.8);
+\coordinate (D0) at (0.45,0.45);
+\coordinate (F) at (1,1.8);
+\coordinate (F0) at (1,1);
+\coordinate (R20) at (0.6,0.6);
+\coordinate (R21) at (0.6,1.4);
+\coordinate (R2) at ($(R21)+(0,0.5)$);
+\end{scope}
+
+\begin{scope}[decoration={bumps,mirror},draw=red!30,fill=red!20]
+\filldraw (r1) decorate {--(r2)}  
+	-- (r3) 
+	decorate{--(r4)} 
+	-- cycle;
+\filldraw (R21) -- (R2)
+	decorate{-- ++(-0.8,0)}
+	decorate{-- ++(0,-0.5)}
+	--cycle;
+\draw(r1)--(R21);
+\draw(r2)--(R20);
+\draw(R20) -- (R2);
+\end{scope}
+
+% axis
+\begin{scope}[>=latex']
+\draw[->] (O) +(-0.2,0) -- (x1) node[below] {$x$};
+\draw[->] (O) +(0,-0.1) -- (x2) node[right] {$f(x)$};
+\end{scope}
+\begin{scope}[>=open diamond]
+\draw[->] (O1) +(-0.1,0) -- ++(x1);
+\draw[->] (O1) +(0,-0.1) -- ++(x2);
+\end{scope}
+\draw (O1) -- ++(45:2.5);
+
+% draw curves
+\draw (a) sin (b);
+\FullSine{(b)}{(c)};
+\FullSine{(c)}{(d)};
+\FullSine{(d)}{(e)};
+\FullSine{(e)}{(f)};
+\FullSine{(f)}{(g)};
+\draw (h) sin (g);
+
+\begin{scope}[dotted]
+\draw (B) -- (B0) -- (e);
+\draw (D) -- (D0) -- (c);
+\draw (F) -- (F0) -- (g);
+\draw (b) -- (B);
+\draw (d) -- (D);
+\draw (f) -- (F);
+\end{scope}
+
+\foreach \i in {(B),(D),(F)} {
+	\filldraw[fill=white] \i circle(2pt);
+}
+
+\end{tikzpicture}
+

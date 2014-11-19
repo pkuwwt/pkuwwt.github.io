@@ -1,0 +1,89 @@
+\usetikzlibrary{arrows,intersections,calc}
+	\begin{tikzpicture}[>=latex']
+		\coordinate (O) at (0,0);
+		\coordinate[label=right:{$y$}] (Y) at (5,0);
+		\coordinate[label=above:{$z$}] (Z) at (0,2.5);
+		\coordinate[label=below left:{$x$}] (X) at ({5*cos(-120)},{2.5*sin(-120});
+		\coordinate (S) at ({5*cos(-60)},{2.5*sin(-60});
+
+		\draw[name path=C] (O) circle(4 and 1.6);
+		\draw[name path=P] ($(O)+(-3,0.5)$) arc (-175:-5:3 and 1.1);
+		\begin{scope}
+			\clip (-3,0)--(-3,2)--(3,2)--(3,0)--cycle;
+			%\draw ($(O)+(2.4,-0.4)$) arc (5:175:2.4 and 0.96);
+			\draw (0,-0.4) circle (2.4 and 0.96);
+		\end{scope}
+		\path[name path=PX] (O) -- (X);
+		\path[name path=PY] (O) -- (Y);
+		\draw[name path=PZ] (O) -- (Z) node[above] {$z$};
+		\path[name path=PS] (O) -- (S);
+
+		\path[name path=P1] (O) -- ($(O)!1!-20:(X)$);
+		\path[name path=P2] (O) -- ($(O)!1!20:(S)$);
+		\path [name intersections={of=P and P1}];
+		\coordinate (U1) at (intersection-1);
+		\path [name intersections={of=P and P2}];
+		\coordinate (U2) at (intersection-1);
+
+		\path[name path=P1] (U1) -- +(0,-2);
+		\path[name path=P2] (U2) -- +(0,-2);
+		\path[name intersections={of=P1 and C}];
+		\coordinate (D1) at (intersection-1);
+		\path[name intersections={of=P2 and C}];
+		\coordinate (D2) at (intersection-1);
+		\coordinate (XC) at ($(U1)!0.5!(D1)$);
+		\coordinate (SC) at ($(U2)!0.5!(D2)$);
+
+		\draw[name path=P2] (U1) .. controls +(220:0.5) and +(140:0.5) .. (D1);
+		\draw[name path=P1,dashed] (U1) .. controls +(-40:0.5) and +(40:0.5) .. (D1);
+		\path[name intersections={of=P and PX}];
+		\coordinate (X0) at (intersection-1);
+		\path[name intersections={of=P1 and PX}];
+		\coordinate (X1) at (intersection-1);
+		\path[name intersections={of=P2 and PX}];
+		\coordinate (X2) at (intersection-1);
+		\path[name path=P1] (XC) -- ($(XC)!2!-90:(X)$);
+		\path[name intersections={of=P1 and P2}];
+		\coordinate (X4) at (intersection-1);
+		\draw[name path=P1,dashed] (U2) .. controls +(220:0.5) and +(140:0.5) .. (D2);
+		\draw[name path=P2] (U2) .. controls +(-40:0.5) and +(40:0.5) .. (D2);
+		\path[name intersections={of=P and PS}];
+		\coordinate (S0) at (intersection-1);
+		\path[name intersections={of=P1 and PS}];
+		\coordinate (S1) at (intersection-1);
+		\path[name intersections={of=P2 and PS}];
+		\coordinate (S2) at (intersection-1);
+		\path[name path=P1] (SC) -- ($(SC)!2!90:(S)$);
+		\path[name intersections={of=P1 and P2}];
+		\coordinate (S4) at (intersection-1);
+
+		\path[name intersections={of=P and PY}];
+		\coordinate (Y1) at (intersection-1);
+		\path[name intersections={of=C and PY}];
+		\coordinate (Y2) at (intersection-1);
+		\draw (O) -- (Y1);
+		\draw[dashed] (Y1) -- (Y2);
+		\draw (Y2) -- (Y);
+
+		\draw (O) -- (X0);
+		\draw[dashed] (X0) -- (X2);
+		\draw (X2) -- (X);
+		\draw (O) -- (S0);
+		\draw[dashed] (S0) -- (S2);
+		\draw (S2) -- (S);
+
+		\fill (XC) circle(1pt) (X1) circle(1pt) (X2) circle(1pt);
+		\fill (SC) circle(1pt) (S1) circle(1pt) (S2) circle(1pt);
+
+		\filldraw (XC) -- (X4) circle(1pt);
+		\filldraw (SC) -- (S4) circle(1pt);
+
+		\draw[->] ($0.06*(X)$) .. controls +(-45:0.1) and +(-160:0.1) .. ($0.06*(S)$);
+		\node[below] at (0,-0.1) {$\phi$};
+		\draw[->] ($(XC)!0.5!(X2)$) .. controls +(120:0.1) and +(-120:0.1) .. ($(XC)!0.5!(X4)$);
+		\draw[->] ($(SC)!0.5!(S2)$) .. controls +(60:0.1) and +(-60:0.1) .. ($(SC)!0.5!(S4)$);
+		\node (XC1) at ($(XC)-(0.5,0)$) {$\theta$};
+		\node (SC1) at ($(SC)+(0.5,0)$) {$\theta$};
+
+	\end{tikzpicture}
+
