@@ -15,3 +15,7 @@ convert orgin.png -transparent white trans.png
 convert input.png -fill yellow -opaque black output.png
 {% endhighlight %}
 
+置换格式时设置图像分辨率
+{% highlight bash %}
+convert -density 500x500 input.pdf out.png
+{% highlight %}
