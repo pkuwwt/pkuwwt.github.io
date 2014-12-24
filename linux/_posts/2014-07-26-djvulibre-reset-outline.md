@@ -8,7 +8,7 @@ djvulibre中的`djvused`工具堪称djvu文件操作的瑞士军刀，在此记�
 
 首先，如果djvu文件中已经有了索引，可以将其导出来，一来可以参考其语法，二来不需要自己从头动手。
 {% highlight bash %}
-djvused file.djvu -e "print-outline outline.txt"
+djvused file.djvu -e "print-outline"
 {% endhighlight %}
 `-e`选项用来指定命令，这几乎是你唯一需要的选项。
 
@@ -51,4 +51,6 @@ djvused file.djvu -e "select 3;set-page-title II;save"
 {% highlight bash %}
 djvused file.djvu -e "set-outline outline.txt;save"
 {% endhighlight %}
+
+不过，用这种方法修改的outline在djviewer中可用，但evince中不一定能够正确显示。所以最好是全部用数字。
 
