@@ -1,7 +1,7 @@
 name: pkuwwt
 description: 技术博客
 url: http://pkuwwt.github.com
-highlighter: pygments
+highlighter: true
 permalink: /:categories/:year-:month-:day-:title/
 relative_permalinks: false
 markdown: kramdown
