@@ -11,7 +11,7 @@ From [[https://wiki.gnome.org/Design/OS/KeyboardShortcuts]]
   * App List: `Alt-F1`
   * Command: `Alt-F2`
   * Switch Applications: `Alt-Tab`
-  * Switch between same kind of Applications: ``Alt-```
+  * Switch between same kind of Applications: ``Alt-` ``
   * System Tray: `Super-M`
   * Pre/Next Screen: `Ctrl-Alt-UpArrow/DownArrow`
 
