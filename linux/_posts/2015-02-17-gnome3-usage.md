@@ -1,4 +1,6 @@
 ---
+layout: blog
+comments: true
 title: GNOME 3 Usage
 ---
 
