@@ -14,6 +14,7 @@ From [[https://wiki.gnome.org/Design/OS/KeyboardShortcuts]]
   * Switch between same kind of Applications: ``Alt-` ``
   * System Tray: `Super-M`
   * Pre/Next Screen: `Ctrl-Alt-UpArrow/DownArrow`
+  * Move current window to pre/next screen: `Ctrl-Alt-Shift-UpArrow/DownArrow`
 
 ## Shrink height of the title bar
 
