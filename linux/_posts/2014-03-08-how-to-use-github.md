@@ -46,7 +46,7 @@ git push origin master
 生成密钥的命令是
 
 {% highlight bash %}
-ssh -t rsa -C "mymail@gmail.com"
+ssh-keygen -t rsa -C "mymail@gmail.com"
 {% endhighlight %}
 
 过程中会有交互，如果你不输入密码，则ssh的认证过程是没有密码，即免密码。否则，你以后还是得输一遍密码，则避免了输服务器密码，但是要输自己的ssh密码。
