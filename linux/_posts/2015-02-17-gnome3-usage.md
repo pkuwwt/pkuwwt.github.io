@@ -24,3 +24,7 @@ Edit the value of `title_vertical_pad` in `/usr/share/themes/Adwaita/metacity-1/
 
 Then open command dialog with `Alt-F2`, and run `r` to refresh GNOME shell.
 
+## Input Method
+
+When reinstall Ubuntu, there may be unfunctional items in the input method list. To remove them, use `dconf-editor` to revise the entry of `org.gnome.desktop.input-sources.sources`.
+
