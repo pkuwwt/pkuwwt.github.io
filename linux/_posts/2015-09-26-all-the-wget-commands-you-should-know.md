@@ -16,65 +16,65 @@ title: 你应该了解的所有wget命令
 
 Wget是一个极为强大的工具，但和大部分其它命令行程序一样，它所支持的大量选项会吓跑新的用户。因而，这里我们会列出一些wget命令，以帮助你完成一些普通的任务，包括下载单个文件和对整个网站做备份，等。你如果有时间通读[wget手册](https://www.gnu.org/software/wget/manual/wget.pdf)，自然会大受裨益。但是对于忙碌的人们来说，这里给出的却是随时可执行的命令。
 
-  1. 从网上下载单个文件
+  1) 从网上下载单个文件
 
     wget http://example.com/file.iso
 
-  2. 下载一个文件，但以不同的名字存为本地文件
+  2) 下载一个文件，但以不同的名字存为本地文件
 
     wget --output-document=filename.html example.com
 
-  3. 下载一个文件，存到指定的目录
+  3) 下载一个文件，存到指定的目录
 
     wget --directory-prefix=folder/subfolder example.com
 
-  4. 恢复之前中断的一个wget下载
+  4) 恢复之前中断的一个wget下载
 
     wget --continue example.com/big.file.iso
     wget -c example.com/big.file.iso
 
-  5. 下载一个文件，但只在服务器上的版本比本地版本新时才会真正执行
+  5) 下载一个文件，但只在服务器上的版本比本地版本新时才会真正执行
 
     wget --continue --timestamping wordpress.org/latest.zip
 
-  6. 用wget下载多个网址，这些网址存于一个文本文件中，一行一个网址
+  6) 用wget下载多个网址，这些网址存于一个文本文件中，一行一个网址
 
     wget --input list-of-file-urls.txt
 
-  7. 从服务器下载一些以连续序号为文件名的文件
+  7) 从服务器下载一些以连续序号为文件名的文件
 
     wget http://example.com/images/{1..20}.jpg
     wget http://example.com/images/pre-{1..20}-post.jpg
 
-  8. 下载一个网页，包括它所有的内容，比如样式表和包含的图片，它们是确保网页离线显示所必需的
+  8) 下载一个网页，包括它所有的内容，比如样式表和包含的图片，它们是确保网页离线显示所必需的
 
     wget -page-requisites --span-hosts --convert-links --adjust-extension http://example.com/dir/file
     wget -p -H -k -E http://example.com/dir/file
 
 # 用Wget对网站进行镜像备份
 
-  9. 下载整个网站，包括它所有链接的页面和文件
+  9) 下载整个网站，包括它所有链接的页面和文件
 
     wget --execute robots=off --recursive --no-parent --continue --no-clobber http://example.com/
     wget -e robots=off -r -np -c -nc http://example.com/
 
-  10. 从网站上一个子目录中下载所有MP3文件
+  10) 从网站上一个子目录中下载所有MP3文件
 
     wget --level=1 --recursive --no-parent --accept mp3,MP3 http://example.com/mp3/
     wget -l 1 -r -np -A mp3,MP3 http://example.com/mp3/
 
-  11. 将一个网站上的所有图片下载到同一个目录中
+  11) 将一个网站上的所有图片下载到同一个目录中
 
     wget --directory-prefix=files/pictures --no-directories --recursive --no-clobber --accept jpg,gif,png,jpeg http://example.com/images/
     wget -P files/pictures -nd -r -nc -A jpg,gif,png,jpeg http://example.com/images/
 
 
-  12. 从一个网站上下载PDF文件，采用递归的方式，但不跳出指定的网域
+  12) 从一个网站上下载PDF文件，采用递归的方式，但不跳出指定的网域
 
     wget --mirror --domains=abc.com,files.abc.com,docs.abc.com --accept=pdf http://abc.com/
     wget -m -D abc.com,files.abc.com,docs.abc.com -A pdf http://abc.com/
 
-  13. 从一个网站上下载所有文件，但是排除某些目录
+  13) 从一个网站上下载所有文件，但是排除某些目录
 
     wget --recursive --no-clobber --no-parent --exclude-directories /forums,/support http://example.com
     wget -r -nc -np -X /forums,/support http://example.com
@@ -83,39 +83,39 @@ Wget是一个极为强大的工具，但和大部分其它命令行程序一样�
 
 Wget可用于下载网站上登陆页面之后的内容，或避开HTTP参照位址(referer)和User Agent字符串对抓屏的限制。
 
-  14. 下载网站上的文件，假设此网站检查User Agent和HTTP参照位址(referer)
+  14) 下载网站上的文件，假设此网站检查User Agent和HTTP参照位址(referer)
 
     wget --referer=/5.0 --user-agent="Firefox/4.0.1" http://nytimes.com
 
-  15. 从密码保护网站上下载文件
+  15) 从密码保护网站上下载文件
 
     wget --http-user=labnol --http-password=hello123 http://example.com/secret/file.zip
 
-  16. 抓取登陆界面后面的页面。你需要将用户名和密码替换成实际的表格域值，而URL应该指向(实际的)表格提交页面
+  16) 抓取登陆界面后面的页面。你需要将用户名和密码替换成实际的表格域值，而URL应该指向(实际的)表格提交页面
 
     wget --cookies=on --save-cookies cookies.txt --keep-session-cookies --post-data 'user=labnol&password=123' http://example.com/login.php
     wget --cookies=on --load-cookies cookies.txt --keep-session-cookies http://example.com/paywall
 
 # 用wget获得文件细节
 
-  17. 在不下载的情况下，得到一个文件的大小 (在网络响应中寻找用字节表示的文件长度)
+  17) 在不下载的情况下，得到一个文件的大小 (在网络响应中寻找用字节表示的文件长度)
 
     wget --spider --server-response http://example.com/file.iso
     wget --spider -S http://example.com/file.iso
 
-  18. 下载一个文件，但不存储为本地文件，而是在屏幕上显示其内容
+  18) 下载一个文件，但不存储为本地文件，而是在屏幕上显示其内容
     
     wget --output-document=- --quiet google.com/humans.txt
 	wget -O- -q google.com/humans.txt
 
 ![](../img/wget.gif)
 
-  19. 得到网页的最后修改日期 (检查HTTP头中的Last Modified标签)
+  19) 得到网页的最后修改日期 (检查HTTP头中的Last Modified标签)
 
     wget --server-response --spider http://www.labnol.org/
     wget -S --spider http://www.labnol.org/
 
-  20. 检查你的网站上的链接是否都可用。spider选项将令wget不会在本地保存网页
+  20) 检查你的网站上的链接是否都可用。spider选项将令wget不会在本地保存网页
 
     wget --output-file=logfile.txt --recursive --spider http://example.com
     wget -O logfile.txt -r --spider http://example.com
