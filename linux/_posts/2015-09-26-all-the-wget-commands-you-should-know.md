@@ -10,7 +10,8 @@ title: 你应该了解的所有wget命令
 
 [Wget](https://www.gnu.org/software/wget/manual/html_node/Overview.html)是一个自由的工具，可在包括[Mac](http://brew.sh/)，Window和Linux在内的多个平台上使用，它可帮助你实现所有上述任务，而且还有更多的功能。与大多数下载管理器不同的是，wget可跟着网页上的HTTP链接，递归地下载相关的文件。有个士兵就用过[这个工具](http://www.wired.com/2011/12/cables-scripts-manning/)来从美军内网上下载数千个机密文件，并发布到了维基解密上。
 
-![你可以用wget下载得到整个网站的镜像](../img/wget-mirror-site.png)
+wget下载得到整个网站的镜像
+![用wget下载得到整个网站的镜像](../img/wget-mirror-site.png)
 
 # 使用Wget扒行网站----20个实用例子
 
