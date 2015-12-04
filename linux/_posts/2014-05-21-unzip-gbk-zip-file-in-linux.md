@@ -58,3 +58,31 @@ convmv -f GBK -t utf8 --notest -r .
 
 第二条命令是将GBK编码的文件名转化为UTF8编码，`-r`表示递归访问目录，即对当前目录中所有文件进行转换。
 
+将上述过程写成一个脚本为
+{% highlight bash %}
+#!/bin/bash
+
+if (( $# < 1 ));then
+	echo "USAGE: $0 input.zip [outdir]"
+	exit 1
+fi
+CWD=`readlink -f .`
+inputfile="`readlink -f "$1"`"
+
+outdir="$CWD"
+if (( $# >= 2 ));then
+	outdir="$2"
+fi
+
+tmpdir="/tmp/unzip_cn-`date +%Y%m%d-%H%M%S`"
+mkdir -p $tmpdir
+cd $tmpdir
+
+LANG=C 7za x "$inputfile"
+convmv -f GBK -t utf8 --notest -r .
+mv * "$outdir"
+
+cd "$CWD"
+{% endhighlight %}
+
+两个脚本的下载：[unzip_cn.py](../img/unzip_cn.py), [unzip_cn.sh](../img/unzip_cn.sh)。
