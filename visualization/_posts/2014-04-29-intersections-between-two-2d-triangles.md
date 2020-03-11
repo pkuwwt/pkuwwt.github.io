@@ -1,7 +1,7 @@
 ---
 layout: blog
 comments: true
-used3: true
+d3: true
 title: 两个平面三角形的相交测试
 ---
 

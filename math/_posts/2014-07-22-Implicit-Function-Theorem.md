@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+math: true
 title: 隐函数定理
 ---
 

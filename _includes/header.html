@@ -31,19 +31,11 @@
     </nav>
   </div>
 
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-		  tex2jax: {
-			inlineMath: [['$','$'], ['\\(','\\)']],
-			processEscapes: true
-		  },
-		  TeX: {extensions: ["color.js"]}
-});
-</script>
-{% if page.used3 %}
+{% if page.math %}
+{% include mathtex.html %}
+{% endif %}
+
+{% if page.d3 %}
 <script src="../../js/d3.v3.min.js" charset="utf-8">
 </script>
 {% endif %}
