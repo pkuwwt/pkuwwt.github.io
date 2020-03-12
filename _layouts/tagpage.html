@@ -1,0 +1,61 @@
+---
+layout: page
+---
+
+<section class="docs">
+  <div class="grid">
+    <article>
+
+<h1>
+	标签：<span id="tag-title"></span>
+</h1>
+{% capture tagString %}{% for tag in site.tags %}{{ tag[0] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+{% assign tags = tagString | split: '|' | sort: 'downcase' %}
+{% for tag in tags %}
+<ul data-tag="{{tag}}" style="display:none">
+	{% for post in site.tags[tag] %}
+	<li>
+		{{ post.date | date: "%B %d, %Y" }}: <a href="{{ post.url }}">{{post.title}}</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endfor %}
+
+<div>
+	标签：
+{% for tag in tags %}
+<a href="/tags.html?tag={{tag}}">{{tag}}</a>
+{% endfor %}
+</div>
+
+<script>
+	let current_tag = 'gis';
+	const get_tag_in_query = () => {
+		const urlParams = new URLSearchParams(window.location.search);
+		const myParam = urlParams.get('tag');
+		return myParam;
+	};
+	const set_tag_visibility = (tag, visible) => {
+		const tagElement = document.querySelector(`[data-tag="${tag}"]`);
+		if (!tagElement) {
+			console.error(`no such tag "${tag}"`);
+			return;
+		}
+		tagElement.style.display = visible ? '' : 'none';
+	};
+	const switch_to_tag = tag => {
+		if (tag === current_tag) {
+			set_tag_visibility(tag, true);
+		} else {
+			set_tag_visibility(current_tag, false);
+			set_tag_visibility(tag, true);
+			current_tag = tag;
+		}
+		document.getElementById('tag-title').innerText = tag;
+	};
+	switch_to_tag(get_tag_in_query() || current_tag);
+</script>
+
+    </article>
+  </div>
+</section>

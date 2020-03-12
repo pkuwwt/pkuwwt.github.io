@@ -2,6 +2,7 @@
 vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
+tags: gis algorithm
 title: Encoded Polyline Algorithm
 ---
 
