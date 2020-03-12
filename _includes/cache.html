@@ -1,0 +1,54 @@
+<div data-type="posts" style="display:none">
+{% for post in site.posts %}
+<div data-type="post">
+	<div data-type="tags">
+		{% for tag in post.tags %}
+		<div data-type="tag">{{tag}}</div>
+		{% endfor %}
+	</div>
+	<div data-type="title">{{post.title}}</div>
+	<div data-type="date">{{post.date}}</div>
+	<div data-type="url">{{post.url}}</div>
+	<div data-type="content"><pre><code>{{post.content | strip_html}}</code></pre></div>
+</div>
+{% endfor %}
+</div>
+
+
+<script>
+	const parse_tags = div => {
+		const tag_divs = div.querySelectorAll('[data-type="tag"]');
+		const tags = [];
+		for (let d of tag_divs) {
+			tags.push(d.textContent);
+		}
+		return tags;
+	};
+	const parse_content = div => {
+		const content = div.querySelector('[data-type="content"]');
+		if (!content) {
+			return '';
+		}
+		const codeElement = content.querySelector('code');
+		return codeElement ? codeElement.textContent : '';
+	};
+	const parse_post = div => {
+		const title = div.querySelector('[data-type="title"]').textContent;
+		const date = div.querySelector('[data-type="date"]').textContent;
+		const content = parse_content(div);
+		const url = div.querySelector('[data-type="url"]').textContent;
+		const tags_div = div.querySelector('[data-type="tags"]');
+		const tags = parse_tags(tags_div);
+		return {tags, title, date, content, url};
+	};
+	const parse_posts = () => {
+		const root = document.querySelector('[data-type="posts"]');
+		const post_divs = root.querySelectorAll('[data-type="post"]') || [];
+		const posts = [];
+		for (let div of post_divs) {
+			posts.push(parse_post(div));
+		}
+		return posts;
+	};
+	window.posts = parse_posts();
+</script>

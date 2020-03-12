@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+math: true
 title: 函数的临界点上的海森(Hessian)矩阵的含义[译]
 ---
 
