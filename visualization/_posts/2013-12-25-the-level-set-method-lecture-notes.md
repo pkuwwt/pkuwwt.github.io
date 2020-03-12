@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: algorithm visualization
 title: 层次集方法讲稿[译]
 ---
 

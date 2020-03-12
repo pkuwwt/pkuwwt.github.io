@@ -4,13 +4,18 @@ title: pkuwwt 技术博客
 categories: programming
 ---
 <section class="docs">
-  <div class="grid">
-    <article>
-    <ul>
-      {% for post in site.categories.programming %}
-      <li><span>{{ post.date | date: '%Y-%m-%d' }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
-    </article>
-  </div>
+	<div class="grid">
+		<div class="unit four-fifths">
+			<article>
+				<ul>
+					{% for post in site.categories.programming %}
+					<li><span>{{ post.date | date: '%Y-%m-%d' }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</article>
+		</div>
+		<div class="unit one-fifth hide-on-mobiles">
+			{% include side.html %}
+		</div>
+	</div>
 </section>

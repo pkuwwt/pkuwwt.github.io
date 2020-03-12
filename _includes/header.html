@@ -1,42 +1,45 @@
 <header>
-  <div class="grid title">
-    <h1>
-      <a href="{{ site.baseurl }}/">PKUWWT</a>
-    </h1>
-	<h2>消遣时光</h2>
-  </div>
-  <div class="grid">
-    <nav class="main-nav">
-      {% assign category = page.categories | join: ' ' | split: ' ' | last %}
-      <ul>
-        <li class="{% if category == 'linux' %}current{% endif %}">
-        <a href="{{ site.baseurl }}/linux">Linux</a>
-        </li>
-        <li class="{% if category == 'visualization' %}current{% endif %}">
-        <a href="{{ site.baseurl }}/visualization">Visualization</a>
-        </li>
-        <li class="{% if category == 'programming' %}current{% endif %}">
-        <a href="{{ site.baseurl }}/programming">Programming</a>
-        </li>
-        <li class="{% if category == 'blog' %}current{% endif %}">
-        <a href="{{ site.baseurl }}/blog">Blog</a>
-        </li>
-        <li class="{% if category == 'math' %}current{% endif %}">
-        <a href="{{ site.baseurl }}/math">Mathematics</a>
-        </li>
-        <li class="{% if category == 'about' %}current{% endif %}">
-        <a href="{{ site.baseurl }}/about">About Me</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+	<div class="flexbox">
+		<div class="center-on-mobiles">
+			<h1 class="grid title" style="font-family:cursive">
+				<a href="{{ site.baseurl }}/">PKUWWT</a>
+			</h1>
+		</div>
+		<nav class="main-nav">
+			{% assign category = page.categories | join: ' ' | split: ' ' | last %}
+			<ul>
+				<li class="{% if category == 'linux' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/linux">Linux</a>
+				</li>
+				<li class="{% if category == 'visualization' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/visualization">Visualization</a>
+				</li>
+				<li class="{% if category == 'programming' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/programming">Programming</a>
+				</li>
+				<li class="{% if category == 'blog' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/blog">Blog</a>
+				</li>
+				<li class="{% if category == 'math' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/math">Mathematics</a>
+				</li>
+				<li class="{% if category == 'about' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/about">About Me</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="grid title">
+	</div>
+	<div class="grid">
+	</div>
 
-{% if page.math %}
-{% include mathtex.html %}
-{% endif %}
+	{% if page.math %}
+	{% include mathtex.html %}
+	{% endif %}
 
-{% if page.d3 %}
-<script src="../../js/d3.v3.min.js" charset="utf-8">
-</script>
-{% endif %}
+	{% if page.d3 %}
+	<script src="../../js/d3.v3.min.js" charset="utf-8">
+	</script>
+	{% endif %}
 </header>

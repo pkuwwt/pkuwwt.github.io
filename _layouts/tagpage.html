@@ -4,10 +4,8 @@ layout: page
 
 <section class="docs">
   <div class="grid">
-    <article>
-
 <h1>
-	标签：<span id="tag-title"></span>
+	Tag: <span id="tag-title"></span>
 </h1>
 {% capture tagString %}{% for tag in site.tags %}{{ tag[0] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
 {% assign tags = tagString | split: '|' | sort: 'downcase' %}
@@ -15,18 +13,11 @@ layout: page
 <ul data-tag="{{tag}}" style="display:none">
 	{% for post in site.tags[tag] %}
 	<li>
-		{{ post.date | date: "%B %d, %Y" }}: <a href="{{ post.url }}">{{post.title}}</a>
+		{{ post.date | date: '%Y-%m-%d' }}: <a href="{{ post.url }}">{{post.title}}</a>
 	</li>
 	{% endfor %}
 </ul>
 {% endfor %}
-
-<div>
-	标签：
-{% for tag in tags %}
-<a href="/tags.html?tag={{tag}}">{{tag}}</a>
-{% endfor %}
-</div>
 
 <script>
 	let current_tag = 'gis';
@@ -55,7 +46,5 @@ layout: page
 	};
 	switch_to_tag(get_tag_in_query() || current_tag);
 </script>
-
-    </article>
   </div>
 </section>

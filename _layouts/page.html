@@ -3,8 +3,13 @@ layout: default
 ---
 <section class="docs">
   <div class="grid">
-    <article>
-    {{ content }}
-    </article>
+	  <div class="unit four-fifths">
+		  <article>
+			  {{ content }}
+		  </article>
+	  </div>
+	  <div class="unit one-fifth hide-on-mobiles">
+		  {% include side.html %}
+	  </div>
   </div>
 </section>
