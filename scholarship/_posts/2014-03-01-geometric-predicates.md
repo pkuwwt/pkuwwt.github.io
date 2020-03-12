@@ -1,6 +1,8 @@
 ---
 layout: blog
 comments: true
+math: true
+tags: geometry visualization
 title: 几种基本几何预测
 ---
 

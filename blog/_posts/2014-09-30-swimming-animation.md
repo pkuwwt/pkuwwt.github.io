@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: swim blog
 title: 游泳技术动画
 ---
 

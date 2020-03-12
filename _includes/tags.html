@@ -1,0 +1,11 @@
+<div>
+	<div>Tags</div>
+	<div>
+		{% for tag in site.tags %}
+		<a data-tag="{{tag[0]}}"
+		   href="/tags.html?tag={{tag[0]}}"
+		   style="font-size:{{tag[1]|size|times:2|plus:12}}px">{{tag[0]}}</a>
+		{% endfor %}
+	</div>
+</div>
+

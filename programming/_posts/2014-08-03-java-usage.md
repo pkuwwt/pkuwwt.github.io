@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: programming java
 title: Java Usage
 ---
 

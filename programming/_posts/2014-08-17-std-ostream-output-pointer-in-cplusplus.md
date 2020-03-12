@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: programming C++
 title: C++中打印指针
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: LaTeX scholarship
 title: Latex中bibtex的命名
 ---
 

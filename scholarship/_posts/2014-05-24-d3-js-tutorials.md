@@ -1,6 +1,7 @@
 ---
 layout: blog
 commments: true
+tags: D3 visualization
 title: D3.js入门资料集锦
 ---
 

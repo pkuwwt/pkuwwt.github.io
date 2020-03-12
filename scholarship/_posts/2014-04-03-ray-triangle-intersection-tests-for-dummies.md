@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: algorithm visualization geometry
 title: 光线-三角形求交测试算法[译]
 ---
 

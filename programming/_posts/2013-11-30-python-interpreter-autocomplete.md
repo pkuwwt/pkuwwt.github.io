@@ -2,6 +2,7 @@
 vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
+tags: python programming
 title: python解释器中的自动补全
 ---
 

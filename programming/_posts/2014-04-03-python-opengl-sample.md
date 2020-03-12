@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: OpenGL python programming
 title: Python下写OpenGL代码示例
 ---
 

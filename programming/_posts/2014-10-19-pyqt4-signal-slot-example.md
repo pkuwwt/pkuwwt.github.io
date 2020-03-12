@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: python PyQt programming
 title: PyQt4 signal and slot Example
 ---
 

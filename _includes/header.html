@@ -5,26 +5,18 @@
 				<a href="{{ site.baseurl }}/">PKUWWT</a>
 			</h1>
 		</div>
+
 		<nav class="main-nav">
 			{% assign category = page.categories | join: ' ' | split: ' ' | last %}
 			<ul>
-				<li class="{% if category == 'linux' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/linux">Linux</a>
-				</li>
-				<li class="{% if category == 'visualization' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/visualization">Visualization</a>
+				<li class="{% if category == 'Techniques' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/techniques">Techniques</a>
 				</li>
 				<li class="{% if category == 'programming' %}current{% endif %}">
 					<a href="{{ site.baseurl }}/programming">Programming</a>
 				</li>
-				<li class="{% if category == 'blog' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/blog">Blog</a>
-				</li>
 				<li class="{% if category == 'math' %}current{% endif %}">
 					<a href="{{ site.baseurl }}/math">Mathematics</a>
-				</li>
-				<li class="{% if category == 'about' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/about">About Me</a>
 				</li>
 			</ul>
 		</nav>

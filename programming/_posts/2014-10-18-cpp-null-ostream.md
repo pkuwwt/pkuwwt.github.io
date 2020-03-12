@@ -1,6 +1,7 @@
 ---
 comments: true
 layout: blog
+tags: programming C++
 title: Null Ostream Class in C++
 ---
 

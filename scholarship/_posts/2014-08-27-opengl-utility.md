@@ -1,4 +1,5 @@
 ---
+tags: visualization OpenGL
 title: OpenGL使用技巧
 ---
 

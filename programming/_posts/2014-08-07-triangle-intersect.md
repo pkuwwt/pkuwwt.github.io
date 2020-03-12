@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: geometry programming python
 title: 平面三角形求交测试(Planar Triangles Intersection)
 ---
 

@@ -2,6 +2,7 @@
 vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
+tags: visualization GPU
 title: GPU Gems - 第17章 环境光遮蔽[译]
 ---
 

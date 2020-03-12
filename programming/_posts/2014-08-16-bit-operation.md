@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: programming
 title: bit操作
 ---
 

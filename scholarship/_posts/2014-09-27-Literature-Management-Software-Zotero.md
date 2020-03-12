@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: scholarship zotero
 title: 文献管理工具Zotero
 ---
 

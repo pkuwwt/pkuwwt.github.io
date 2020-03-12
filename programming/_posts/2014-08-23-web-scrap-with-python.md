@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: python crawler
 title: 用python来扒网页
 ---
 

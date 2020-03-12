@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: scholarship
 title: 资源网站集锦
 ---
 

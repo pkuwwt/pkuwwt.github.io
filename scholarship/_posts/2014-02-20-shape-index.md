@@ -1,6 +1,8 @@
 ---
 layout: blog
 comments: true
+tags: visualization geometry
+math: true
 title: 形状指数(shape index)
 ---
 

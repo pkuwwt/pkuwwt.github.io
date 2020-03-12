@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: python programming
 title: Python使用问题集锦
 ---
 

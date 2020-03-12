@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: python programming
 title: python的profile工具
 ---
 

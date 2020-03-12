@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: visualization data
 title: 可视化数据集
 ---
 

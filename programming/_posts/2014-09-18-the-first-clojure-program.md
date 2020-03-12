@@ -1,6 +1,7 @@
 ---
 title: 第一个clojure程序
 layout: blog
+tags: programming lisp clojure
 comments: true
 ---
 

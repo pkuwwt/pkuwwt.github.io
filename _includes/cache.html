@@ -9,7 +9,11 @@
 	<div data-type="title">{{post.title}}</div>
 	<div data-type="date">{{post.date}}</div>
 	<div data-type="url">{{post.url}}</div>
-	<div data-type="content"><pre><code>{{post.content | strip_html}}</code></pre></div>
+	<div data-type="content"><pre><code>
+	{% comment %}
+	{{post.content | strip_html}}
+	{% endcomment %}
+	</code></pre></div>
 </div>
 {% endfor %}
 </div>

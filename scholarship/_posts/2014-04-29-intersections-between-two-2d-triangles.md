@@ -2,6 +2,7 @@
 layout: blog
 comments: true
 d3: true
+tags: algorithm geometry
 title: 两个平面三角形的相交测试
 ---
 

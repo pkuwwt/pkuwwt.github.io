@@ -1,7 +1,8 @@
 ---
 layout: blog
 comments: true
-used3: true
+d3: true
+tags: visualization scholarship
 title: draw critical points classification of planar system using tikz
 ---
 

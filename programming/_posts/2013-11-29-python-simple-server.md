@@ -2,6 +2,7 @@
 vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
+tags: python programming
 title: 最简单的python服务器
 ---
 

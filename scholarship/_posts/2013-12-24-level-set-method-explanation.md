@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: visualization algorithm
 title: 层次集方法(Level Set Method) -- 解释[译]
 ---
 

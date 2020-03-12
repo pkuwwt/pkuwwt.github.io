@@ -1,6 +1,8 @@
 ---
 layout: blog
 comments: true
+math: true
+tags: math visualization geometry
 title: 单纯复形(Simplicial Complexes)[译]
 ---
 

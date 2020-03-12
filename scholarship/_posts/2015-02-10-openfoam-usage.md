@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: visualization CFD
 title: Usage of OpenFoam
 ---
 
