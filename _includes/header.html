@@ -10,6 +10,9 @@
 
 		<nav class="mobile-nav show-on-mobiles">
 			<ul>
+				<li class="{% if category == 'home' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/home">Home</a>
+				</li>
 				<li class="{% if category == 'techniques' %}current{% endif %}">
 					<a href="{{ site.baseurl }}/techniques">Techniques</a>
 				</li>
@@ -24,6 +27,9 @@
 
 		<nav class="main-nav hide-on-mobiles">
 			<ul>
+				<li class="{% if category == 'home' %}current{% endif %}">
+					<a href="{{ site.baseurl }}/home">Home</a>
+				</li>
 				<li class="{% if category == 'techniques' %}current{% endif %}">
 					<a href="{{ site.baseurl }}/techniques">Techniques</a>
 				</li>
