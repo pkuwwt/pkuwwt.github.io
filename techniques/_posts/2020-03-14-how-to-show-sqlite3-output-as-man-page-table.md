@@ -3,7 +3,7 @@ vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
 tags: sqlite3 linux
-title: How to show Sqlite3 outout as Man page table
+title: How to show Sqlite3 output as Man page table
 ---
 
 ## Why to use man page?
