@@ -71,15 +71,21 @@
 			// 	container.removeChild(c);
 			// }
 		};
-		const matchPost = (post, keyword) => {
-			return post.title.toLowerCase().indexOf(keyword) !== -1;
+		const matchPost = (post, keywords) => {
+			if (!keywords) {
+				return false;
+			}
+			for (let keyword of keywords) {
+				if (post.title.toLowerCase().indexOf(keyword) === -1) return false;
+			}
+			return true;
 		};
 		clearPosts();
 		if (!keyword) {
 			return;
 		}
-		keyword = keyword.toLowerCase();
-		const filteredPosts = posts.filter(p => matchPost(p, keyword));
+		const keywords = keyword.toLowerCase().split(' ').filter(i => !!i);
+		const filteredPosts = posts.filter(p => matchPost(p, keywords));
 		filteredPosts.slice(0, 7).forEach(addPost);
 	};
 	if (!isRootHidden) {

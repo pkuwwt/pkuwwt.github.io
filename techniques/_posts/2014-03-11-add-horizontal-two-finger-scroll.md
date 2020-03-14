@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: linux
 title: 在Linux下为笔记本添加两指左右滚动功能
 ---
 

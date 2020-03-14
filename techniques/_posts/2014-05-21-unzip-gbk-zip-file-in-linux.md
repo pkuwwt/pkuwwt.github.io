@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: linux zip python
 title: Linux下zip文件解压乱码问题
 ---
 

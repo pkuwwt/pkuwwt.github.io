@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: linux
 title: 一个用于寻找文件，并便于打开文件的脚本
 ---
 

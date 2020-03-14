@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: linux
 title: 备份文件Shell脚本
 ---
 
@@ -8,7 +9,7 @@ Linux下经常用到的一个操作是文件打包，而在压缩包文件名中
 
 {% highlight bash %}
 #!/bin/bash
-# compression_targz bzip2|xz|lzip|lzma|lzop|gzip output inputs... 
+# compression_tar bzip2|xz|lzip|lzma|lzop|gzip output inputs... 
 function compression_tar(){
 	local METHOD=$1
 	local OUT=$2
