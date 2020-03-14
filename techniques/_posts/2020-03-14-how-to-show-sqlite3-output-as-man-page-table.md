@@ -56,20 +56,23 @@ And the final script is
 # usage:
 # sqlite3 -header db.sqlite 'select * from sqlite_master;' | sqlite_to_man
 sqlite_to_man() {
-	{
-		echo ".TS"
-		echo "box;"
-		first=
-		while read line; do
-			if [[ $first- == "-" ]]; then
-				echo $line | awk 'BEGIN{FS="|";ORS="";}{for (i=1;i<NF;++i) {print "c | "} print "c\n"}'
-				echo $line | awk 'BEGIN{FS="|";ORS="";}{for (i=1;i<NF;++i) {print "c | "} print "c.\n"}'
-				first=true
-			fi
-			echo $line | sed "s/|/\t/g"
-		done
-		echo ".TE"
-	} | tbl - | groff -man -T ascii $1 | less -S
+  {
+    count=0
+    while read line; do
+      if (( `expr $count % 50` == 0 )); then
+        if (( $count > 0 )); then
+          echo ".TE"
+        fi
+        echo ".TS"
+        echo "box;"
+        echo $line | awk 'BEGIN{FS="|";ORS="";}{for (i=1;i<NF;++i) {print "c | "} print "c\n"}'
+        echo $line | awk 'BEGIN{FS="|";ORS="";}{for (i=1;i<NF;++i) {print "c | "} print "c.\n"}'
+      fi
+      echo $line | gsed "s/|/\t/g"
+      count=`expr $count + 1`
+    done
+    echo ".TE"
+  } | tbl - | groff -man -T ascii $1 | less -S
 }
 ```
 
@@ -79,18 +82,20 @@ Or we can directly use command `man` other than `tbl|groff|less` to make it quic
 
 ```
 sqlite_to_man() {
-	file=/tmp/`date +%Y%m%d-%H%M%S`-man.1
-	{
-		...
-	} >$file
-	man $file
-	rm -f $file
+  file=/tmp/`date +%Y%m%d-%H%M%S`-man.1
+  {
+    ...
+  } >$file
+  MANPAGER='/usr/bin/less -isS' man $file
+  rm -f $file
 }
 ```
 
+Notice that the `-S` option for `less` is used to avoid line-wrapping.
+
 ## Limitation
 
-The above script ignore the fact that there may be strings container newlines, and the speed is not very satisfactory when the number of rows is more than a few hundreds.
+The above script ignore the fact that there may be strings container newlines, and the speed is not very satisfactory when the number of rows is more than one hundred.
 
 Maybe I need to use the `csv` output format, and write another python script based on `pydoc`.
 
