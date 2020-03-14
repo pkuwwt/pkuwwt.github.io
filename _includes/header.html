@@ -1,6 +1,28 @@
+<style>
+.dropdown {
+	position: relative;
+	background-color: #444;
+	border: none;
+}
+.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #444;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  padding: 12px 16px;
+	  z-index: 1;
+	  text-align: left;
+	  right: 5px;
+	  margin-top: 5px;
+}
+.dropdown-visible .dropdown-content {
+  display: block;
+}
+</style>
 <header>
 	<div class="flexbox">
-		<div class="hide-on-mobiles">
+		<div>
 			<h1 class="grid title" style="font-family:cursive">
 				<a href="{{ site.baseurl }}/">PKUWWT</a>
 			</h1>
@@ -8,22 +30,17 @@
 
 		{% assign category = page.categories | join: ' ' | split: ' ' | last %}
 
-		<nav class="mobile-nav show-on-mobiles">
-			<ul>
-				<li class="{% if category == 'home' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/home">Home</a>
-				</li>
-				<li class="{% if category == 'techniques' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/techniques">Techniques</a>
-				</li>
-				<li class="{% if category == 'programming' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/programming">Programming</a>
-				</li>
-				<li class="{% if category == 'math' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/math">Mathematics</a>
-				</li>
-			</ul>
-		</nav>
+		<button style="padding-block-start:8px;margin-right:5px" class="show-on-mobiles dropdown" onclick="Utils.toggle_menu(event, 'dropdown-menu')">
+			<svg xmlns="http://www.w3.org/2000/svg" width='30' height='30' viewBox='0 0 30 30'>
+				<path stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'></path>
+			</svg>
+			<div class="dropdown-content" id="dropdown-menu">
+				<div> <a href="{{ site.baseurl }}/home">Home</a> </div>
+				<div> <a href="{{ site.baseurl }}/techniques">Techniques</a> </div>
+				<div> <a href="{{ site.baseurl }}/programming">Programming</a> </div>
+				<div> <a href="{{ site.baseurl }}/math">Mathematics</a> </div>
+			</div>
+		</button>
 
 		<nav class="main-nav hide-on-mobiles">
 			<ul>
