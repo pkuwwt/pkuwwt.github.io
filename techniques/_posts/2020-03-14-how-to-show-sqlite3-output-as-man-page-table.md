@@ -75,9 +75,22 @@ sqlite_to_man() {
 
 You may have noticed that I replace the default separator `|` to `TAB`, and add row formats before the first line.
 
+Or we can directly use command `man` other than `tbl|groff|less` to make it quicker.
+
+```
+sqlite_to_man() {
+	file=/tmp/`date +%Y%m%d-%H%M%S`-man.1
+	{
+		...
+	} >$file
+	man $file
+	rm -f $file
+}
+```
+
 ## Limitation
 
-The above script ignore the fact that there may be strings container newlines, and the speed is not very satisfactory.
+The above script ignore the fact that there may be strings container newlines, and the speed is not very satisfactory when the number of rows is more than a few hundreds.
 
 Maybe I need to use the `csv` output format, and write another python script based on `pydoc`.
 
