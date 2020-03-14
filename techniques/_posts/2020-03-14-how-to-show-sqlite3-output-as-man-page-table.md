@@ -79,5 +79,5 @@ You may have noticed that I replace the default separator `|` to `TAB`, and add 
 
 The above script ignore the fact that there may be strings container newlines, and the speed is not very satisfactory.
 
-Maybe I need to use the `csv` output format, and write another python script to resolve these problem.
+Maybe I need to use the `csv` output format, and write another python script based on `pydoc`.
 
