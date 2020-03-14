@@ -1,8 +1,9 @@
 <style>
 .dropdown {
 	position: relative;
-	background-color: #444;
+	background-color: transparent;
 	border: none;
+	padding: 0px;
 }
 .dropdown-content {
 	  display: none;
@@ -19,6 +20,9 @@
 .dropdown-visible .dropdown-content {
   display: block;
 }
+.dropdown-item {
+	line-height: 36px;
+}
 </style>
 <header>
 	<div class="flexbox">
@@ -30,15 +34,15 @@
 
 		{% assign category = page.categories | join: ' ' | split: ' ' | last %}
 
-		<button style="padding-block-start:8px;margin-right:5px" class="show-on-mobiles dropdown" onclick="Utils.toggle_menu(event, 'dropdown-menu')">
+		<button style="margin-right:5px" class="show-on-mobiles dropdown" onclick="Utils.toggle_menu(event, 'dropdown-menu')">
 			<svg xmlns="http://www.w3.org/2000/svg" width='30' height='30' viewBox='0 0 30 30'>
-				<path stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'></path>
+				<path stroke='#fc0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'></path>
 			</svg>
 			<div class="dropdown-content" id="dropdown-menu">
-				<div> <a href="{{ site.baseurl }}/home">Home</a> </div>
-				<div> <a href="{{ site.baseurl }}/techniques">Techniques</a> </div>
-				<div> <a href="{{ site.baseurl }}/programming">Programming</a> </div>
-				<div> <a href="{{ site.baseurl }}/math">Mathematics</a> </div>
+				<div class="dropdown-item"> <a href="{{ site.baseurl }}/home">Home</a> </div>
+				<div class="dropdown-item"> <a href="{{ site.baseurl }}/techniques">Techniques</a> </div>
+				<div class="dropdown-item"> <a href="{{ site.baseurl }}/programming">Programming</a> </div>
+				<div class="dropdown-item"> <a href="{{ site.baseurl }}/math">Mathematics</a> </div>
 			</div>
 		</button>
 
