@@ -8,21 +8,21 @@ title: How to show Sqlite3 output as Man page table
 
 ## Why to use man page?
 
-The output format of Sqlite3 sucks. For example, too many rows, too long rows. Although there are `-html` and `-csv` format, why should I use them if I only want to view the first few rows just like PostgreSQL?
+The output format of Sqlite3 sucks. For example, there may be too many rows, too long rows. There are already `-html` and `-csv` formats, but why should I use them if I only want to view the first few rows just like PostgreSQL?
 
-In PostgreSQL prompt, it is always a happy experience to view the query results in a `less`-like interface. I view the first few rows, and press `q` to quit without messing up with the interface.
+In PostgreSQL prompt, it is always a happy experience to view the query results in a `less`-style interface. User can view the first few rows, and then press `q` to quit without messing up with the interface.
 
 ## How to implement it?
 
-The first words come to a linuxer's mind should be: `terminal`, `less` and `table`.
+As regard to this problem, the first words come into a linuxer's mind should be: `terminal`, `less` and `table`.
 
 We know the *manpage* has table format, so we may try to convert the sqlite3 query results to *manpage*, i.e. the `groff` format.
 
-After a few searching, I found that the table in man page is actually related to a format or program called [`tbl`](https://linux.die.net/man/1/tbl). There is no sample code to start with, so I read the original report [Tbl - A Program to Format Tables](http://doc.cat-v.org/unix/v10/10thEdMan/tbl.pdf) and get the following example
+After some searching, I found that the table in man page is actually related to a format or program called [`tbl`](https://linux.die.net/man/1/tbl). There is no sample code to start with, so I read the original report [Tbl - A Program to Format Tables](http://doc.cat-v.org/unix/v10/10thEdMan/tbl.pdf) and get the following example
 
 ![](../img/tbl.jpg)
 
-Given a file `table.txt`
+Given a file `table.1`
 
 ```
 .TS
@@ -38,20 +38,19 @@ Largest state	Alaska	591,004 sq. mi.
 we can show the table with the following commands
 
 ```
-tbl table.txt | groff -T ascii -man - | less -S
-cat table.txt | tbl - | groff -T ascii -man - | less -S
+tbl table.1 | groff -T ascii -man - | less -S
+cat table.1 | tbl - | groff -T ascii -man - | less -S
+man ./table.1
 ```
 
-I won't explain these commands, because I don't know and just try them out.
+I won't explain these commands, because I don't know and just try them out. What really matters is how to display a text-represented table in the terminal.
 
-What really matters is I find out how to display a text-represented table in the terminal.
-
-The table rows are just `TAB`-separated lines between `.TS` and `.TE`.
+Now we know the table here are just `TAB`-separated lines between `.TS` and `.TE`.
 
 Oh, there are also options like `.box;`, `c c c` and `l l r.`. I guess `c c c` is the format of the header, and 
 `l l r.` is the format of the rows of table body. There are `3` columns obviously.
 
-And the final script is
+So the final script is
 ```
 # usage:
 # sqlite3 -header db.sqlite 'select * from sqlite_master;' | sqlite_to_man
@@ -78,7 +77,7 @@ sqlite_to_man() {
 
 You may have noticed that I replace the default separator `|` to `TAB`, and add row formats before the first line.
 
-Or we can directly use command `man` other than `tbl|groff|less` to make it quicker.
+Alternatively, we can directly use command `man` other than `tbl|groff|less` to make it quicker.
 
 ```
 sqlite_to_man() {
@@ -91,7 +90,7 @@ sqlite_to_man() {
 }
 ```
 
-Notice that the `-S` option for `less` is used to avoid line-wrapping.
+Notice that `man` also uses `less` for interaction, and the `-S` option of `less` is to avoid line-wrapping.
 
 ## Limitation
 

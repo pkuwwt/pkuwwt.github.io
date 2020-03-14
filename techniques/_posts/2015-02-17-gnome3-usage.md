@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: linux gnome
 title: GNOME 3 Usage
 ---
 

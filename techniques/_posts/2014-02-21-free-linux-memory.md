@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: linux
 title: 清理Linux中的不用内存或缓存
 ---
 

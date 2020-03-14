@@ -1,6 +1,7 @@
 ---
 layout: blog
 comments: true
+tags: vim makefile
 title: Makefile模板
 ---
 

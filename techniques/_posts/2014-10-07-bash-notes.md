@@ -1,6 +1,7 @@
 ---
 comments: true
 layout: blog
+tags: linux shell
 title: shell用法集锦
 ---
 

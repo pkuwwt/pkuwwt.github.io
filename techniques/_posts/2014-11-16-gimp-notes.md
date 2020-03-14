@@ -1,6 +1,7 @@
 ---
 title: gimp使用笔记
 layout: blog
+tags: linux gimp
 comments: true
 ---
 
