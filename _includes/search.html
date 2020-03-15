@@ -52,6 +52,7 @@
 	const isRootHidden = isHidden(root);
 	const clearButton = root.querySelector('#clear_search_button');
 	const input = root.querySelector('#docsearch');
+    let filteredPosts = [];
 	const updateSearchResults = keyword => {
 		if (!window.posts) {
 			return;
@@ -60,6 +61,7 @@
 		const addPost = post => {
 			const div = document.createElement('div');
 			const a = document.createElement('a');
+            a.style['font-size'] = '12px';
 			a.innerText = post.title;
 			a.href = post.url;
 			div.appendChild(a);
@@ -85,23 +87,35 @@
 			return;
 		}
 		const keywords = keyword.toLowerCase().split(' ').filter(i => !!i);
-		const filteredPosts = posts.filter(p => matchPost(p, keywords));
+		filteredPosts = posts.filter(p => matchPost(p, keywords));
 		filteredPosts.slice(0, 7).forEach(addPost);
 	};
+    const clearAll = () => {
+        input.value = '';
+        updateSearchResults('');
+        filteredPosts = [];
+    };
+    const openFirstResult = () => {
+        if (filteredPosts) {
+            window.location.replace(filteredPosts[0].url);
+        }
+    };
 	if (!isRootHidden) {
 		input.addEventListener('input', e => {
 			clearButton.className = input.value ? 'searchbox__reset' : 'searchbox__reset hide';
 			updateSearchResults(input.value);
 		});
-		clearButton.addEventListener('click', e => {
-			input.value = '';
-			updateSearchResults('');
-		});
+        input.addEventListener('keyup', e => {
+            if (e.key === 'Enter') {
+                openFirstResult();
+            }
+        });
+        input.addEventListener('blur', e => clearAll());
+		clearButton.addEventListener('click', e => clearAll());
 		document.addEventListener('keyup', e => {
-			if (e.key === 's') {
+			if (e.key === 's' || e.key === '/') {
 				setTimeout(() => input.focus(), 300);
 			}
 		});
 	}
 </script>
-

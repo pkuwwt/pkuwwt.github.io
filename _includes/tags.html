@@ -1,11 +1,32 @@
 <div>
-	<div>Tags</div>
 	<div>
+		{% assign maxSize = 20 %}
+		{% assign tagSize = site.tags|size %}
 		{% for tag in site.tags %}
 		<a data-tag="{{tag[0]}}"
 		   href="/tags.html?tag={{tag[0]}}"
 		   style="font-size:{{tag[1]|size|times:2|plus:12}}px">{{tag[0]}}</a>
+		{% if forloop.index == maxSize %}
+		<span id="more-tags" style="display:none">
+		{% endif %}
 		{% endfor %}
+		{% if tagSize > maxSize %}
+			</span>
+			<a style="font-size:10px" href='#' onclick='showMoreTags(this)'>更多&gt;&gt;</a>
+			<a style="display:none;font-size:10px" href='#' onclick='showLessTags(this)'>隐藏&lt;&lt;</a>
+		{% endif %}
+		<script>
+			function showMoreTags(self) {
+				Utils.show_element('more-tags');
+				Utils.hide_element(self);
+				Utils.show_element(self.nextElementSibling);
+			}
+			function showLessTags(self) {
+				Utils.hide_element('more-tags');
+				Utils.hide_element(self);
+				Utils.show_element(self.previousElementSibling);
+			}
+		</script>
 	</div>
 </div>
 

@@ -1,24 +1,29 @@
 
+const show_element = id => {
+    const e = (typeof id === 'string') ? document.getElementById(id) : id;
+    e.style.display = '';
+};
+
 const hide_element = id => {
-    const e = document.getElementById(id);
+    const e = (typeof id === 'string') ? document.getElementById(id) : id;
     e.style.display = 'none';
 };
 
 const toggle_element = id => {
-    const e = document.getElementById(id);
-    if (e.style.display == 'block') {
+    const e = (typeof id === 'string') ? document.getElementById(id) : id;
+    if (e.style.display == '') {
         e.style.display = 'none';
     } else {
-        e.style.display = 'block';
+        e.style.display = '';
     }
 };
 
 const toggle_child_element = (el, id) => {
     const e = el.querySelector('#' + id);
-    if (e.style.display == 'block') {
+    if (e.style.display == '') {
         e.style.display = 'none';
     } else {
-        e.style.display = 'block';
+        e.style.display = '';
     }
 };
 
@@ -34,6 +39,8 @@ const toggle_menu = (event, contentId) => {
 };
 
 window.Utils = {
+    show_element,
+    hide_element,
     toggle_element,
     toggle_child_element,
     toggle_menu
