@@ -7,7 +7,7 @@ title: Continuous Integration Testing For Flask with Jenkins
 
 ## Create a simple flask app
 
-There is a mimimal flask app `app.py`
+There is a minimal flask app `app.py`
 
 ```python
 from flask import Flask
@@ -37,26 +37,26 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-Now if we run `python3 test.py`, the test should be passed.
+Now if we run `python3 test.py`, the test should pass.
 
 ## Jenkinsfile
 
 The `Jenkinsfile` is
 ```
 pipeline {
-	agent { docker { image 'python:3.7.2' } }
-	stages {
-		stage('build') {
-			steps {
-				sh 'pip install flask
-			}
-		}
-		stage('test') {
-			steps {
-				sh 'python test.py'
-			}
-		}
-	}
+    agent { docker { image 'python:3.7.2' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'pip install flask
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'python test.py'
+            }
+        }
+    }
 }
 ```
 
@@ -164,6 +164,40 @@ sudo docker run -p 8080:8080 -p 50000:50000 custom-jenkins
 
 Open `http://127.0.0.1:8080` in browser,
 and use git plugin to add a Continuous Integration test from the git url `https://github.com/pkuwwt/test-flask-jenkins.git`.
+
+## Test Report
+
+Jenkins supports to represent the test reports in the JUnit format, so we should change the output of the test
+
+```
+if __name__ == '__main__':
+    import xmlrunner
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
+    unittest.main(testRunner=runner)
+```
+
+and the `Jenkinsfile`
+
+```
+pipeline {
+    agent { docker { image 'python:3.7.2' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'pip install flask
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'python test.py'
+            }
+            post {
+                always {junit 'test-reports/*.xml'}
+            }
+        }
+    }
+}
+```
 
 ## References
 
