@@ -53,8 +53,6 @@ adb -d -s your-selected-device-name \
 
 ```
 ./gradlew connectedAndroidTest
-adb shell am instrument -w-e class full.path.and.TestClassName \
-		com.demo.app.test/android.support.test.runner.AndroidJUnitRunner
 ```
 
 ## Copy file from devices
@@ -77,4 +75,5 @@ adb_pull() {
 
   * [Build your app from the command line](https://developer.android.com/studio/build/building-cmdline)
   * [How to build and apk from command line](https://medium.com/@authmane512/how-to-build-an-apk-from-command-line-without-ide-7260e1e22676)
+  * [Test from the command line](https://developer.android.com/studio/test/command-line)
 
