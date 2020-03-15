@@ -12,11 +12,13 @@ Install java (at least java 8) and android-sdk first.
 Add the following `PATH` in your `.bashrc` or `.zshrc` or whatever
 
 ```
-export ANDROID_HOME=/path/to/your/android
-export PATH=$PATH:$ANDROID_HOME/sdk/tools/:$ANDROID_HOME/sdk/platform-tools
+export ANDROID_HOME=/path/to/your/android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools
 ```
 
-`ANDROID_HOME` is needed for `gradle`, and related command lines are in the `sdk/tools` and `sdk/platform-tools`.
+`ANDROID_HOME` is required by `gradle`, and related command lines are in the `tools` and `platform-tools` directories.
+
+Essentially, `gradle` reads configuration from an Android project, and figure out all the toolchains and packages. There is no need to bother to download and call `ndk` ourselves.
 
 ## Build app from command line
 
