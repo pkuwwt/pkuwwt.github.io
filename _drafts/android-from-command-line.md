@@ -5,6 +5,19 @@ tags: android
 title: Android From Command Line
 ---
 
+## Prerequsites
+
+Install java (at least java 8) and android-sdk first.
+
+Add the following `PATH` in your `.bashrc` or `.zshrc` or whatever
+
+```
+export ANDROID_HOME=/path/to/your/android
+export PATH=$PATH:$ANDROID_HOME/sdk/tools/:$ANDROID_HOME/sdk/platform-tools
+```
+
+`ANDROID_HOME` is needed for `gradle`, and related command lines are in the `sdk/tools` and `sdk/platform-tools`.
+
 ## Build app from command line
 
 There is a `gradlew` script in every android project, so we can just use the following command lines
@@ -20,12 +33,7 @@ To build a release APK, we should sign it with our private key. Reference [sign 
 
 ## Deploy app to an emulator
 
-Add the following `PATH` in your `.bashrc` or `.zshrc` or whatever
-
-```
-export ANDROID_SDK=/path/to/your/android/sdk
-export PATH=$PATH:$ANDROID_SDK/emulator:$ANDROID_SDK/platform-tools
-```
+Then try the following commands
 
 ```
 emulator -list-avds
@@ -37,15 +45,23 @@ adb install project_dir/module_name/build/outputs/apk/you_app.apk
 
 ```
 adb devices -l  # list all devices
-adb -d -s your-selected-device-name install -r -t project_dir/module_name/build/outputs/apk/you_app.apk
+adb -d -s your-selected-device-name \
+	install -r -t project_dir/module_name/build/outputs/apk/you_app.apk
 ```
 
 ## Test app
 
+```
+./gradlew connectedAndroidTest
+adb shell am instrument -w-e class full.path.and.TestClassName \
+		com.demo.app.test/android.support.test.runner.AndroidJUnitRunner
+```
+
 ## Copy file from devices
 
 ```
-adb -s your-device-name -d shell "run-as com.package.name cat /data/data/com.package.name/path/to/file.txt" >file.txt
+adb -s your-device-name -d shell "run-as com.package.name \
+	cat /data/data/com.package.name/path/to/file.txt" >file.txt
 ```
 
 Or we can write a shell script as 
@@ -60,4 +76,5 @@ adb_pull() {
 ## References
 
   * [Build your app from the command line](https://developer.android.com/studio/build/building-cmdline)
+  * [How to build and apk from command line](https://medium.com/@authmane512/how-to-build-an-apk-from-command-line-without-ide-7260e1e22676)
 
