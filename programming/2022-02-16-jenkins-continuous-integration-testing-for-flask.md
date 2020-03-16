@@ -66,7 +66,7 @@ Now we have a repository with three files:
   * test.py
   * Jenkinsfile
 
-Save it to github or other git server, suppose it's git url is `https://github.com/pkuwwt/test-flask-jenkins.git`.
+Save it to github or other git server, suppose the git url is `https://github.com/darkn3rd/webmf-python-flask`.
 
 ## Install Jenkins
 
@@ -91,7 +91,6 @@ RUN apk add docker
 RUN apk add py-pip
 RUN apk add python-dev libffi-dev openssl-dev gcc libc-dev make
 RUN pip install docker-compose
-USER jenkins
 ```
 
 and the `plugins.txt`
@@ -159,15 +158,23 @@ sudo docker build -t custom-jenkins .
 After the image `custom-jenkins` is finished, run it with
 
 ```
-sudo docker run -p 8080:8080 -p 50000:50000 custom-jenkins
+# use user root other than default jenkins to avoid permission problem
+# use docker on the host, because there is no docker daemon in a docker container
+sudo docker run --user root \
+		 -v /var/run/docker.sock:/var/run/docker.sock \
+		 -p 8080:8080 -p 50000:50000 custom-jenkins
 ```
 
-Open `http://127.0.0.1:8080` in browser,
-and use git plugin to add a Continuous Integration test from the git url `https://github.com/pkuwwt/test-flask-jenkins.git`.
+Open `http://127.0.0.1:8080` in browser, and
+
+  * add a `Pipeline` with `Definition` being `Pipeline script from SCM`
+  * set the `SCM` to `Git` with url `https://github.com/darkn3rd/webmf-python-flask`.
+  * Save
 
 ## Test Report
 
-Jenkins supports to represent the test reports in the JUnit format, so we should change the output of the test
+Jenkins supports to represent the test reports with the JUnit format in the **Blue Ocean**,
+so we should change the output of the test
 
 ```
 if __name__ == '__main__':
