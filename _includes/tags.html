@@ -4,7 +4,7 @@
 		{% assign tagSize = site.tags|size %}
 		{% for tag in site.tags %}
 		<a data-tag="{{tag[0]}}"
-		   href="/tags.html?tag={{tag[0]}}"
+		   href="/tags.html?tag={{tag[0]|url_encode}}"
 		   style="font-size:{{tag[1]|size|times:2|plus:12}}px">{{tag[0]}}</a>
 		{% if forloop.index == maxSize %}
 		<span id="more-tags" style="display:none">
