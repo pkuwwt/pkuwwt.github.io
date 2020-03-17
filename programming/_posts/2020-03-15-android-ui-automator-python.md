@@ -96,7 +96,29 @@ Pull files
 ```python
 d.pull('/sdcard/tmp.txt', 'tmp.txt') 
 ```
-There seems to be permission problem for directory `/data/data`.
+There seems to be permission problem for directory `/data/data`. We may use the python version of `adb shell -d shell "run-as com.xxx.xxx /data/data/com.xxx.xxx/path/to/file.txt" >file.txt`
+
+```python
+def adb_download(device, packageName, path, output):
+	'''
+		The encoding of jsonrpc string is unknown, so explicitly choose base64
+	'''
+    if device == None:
+        print('device is None, please provide an instance of Device')
+        return
+    response = device.shell('run-as {0} cat /data/data/{0}/{1} | base64'.format(packageName, path))
+    if response == None:
+        print('Error to dump file from device, get None response')
+        return
+    if response.exit_code != 0:
+        print('Error to dump file from device, exit_code=', response.exit_code)
+        print('\tMessage: ', response.output)
+        return
+    with open(output, 'wb') as f:
+        f.write(base64.b64decode(response.output.encode('ascii')))
+        print('Save to {} successfully'.format(output))
+	pass
+```
 
 
 Key events
