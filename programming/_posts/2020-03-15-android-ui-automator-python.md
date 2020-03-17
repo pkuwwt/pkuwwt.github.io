@@ -48,19 +48,19 @@ print(d.info)
 
 ### App management
 
-Install an app
+#### Install an app
 
 ```python
 d.app_install('http://url.com/some.apk')  # only support URL
 ```
 
-Lauch an app
+#### Lauch an app
 
 ```python
 d.app_start('com.example.hello_world')
 ```
 
-Stop an app
+#### Stop an app
 
 ```python
 d.app_stop('com.example.hello_world')  # am force-stop
@@ -69,19 +69,19 @@ d.app_stop_all()
 d.app_stop_all(excludes=['com.examples.demo'])
 ```
 
-Get app info
+#### Get app info
 
 ```python
 d.app_info('com.examples.demo')
 ```
 
-List all running apps
+#### List all running apps
 
 ```python
 d.app_list_running()
 ```
 
-Push files
+#### Push files
 
 ```python
 d.push('foo.txt', '/sdcard/')
@@ -91,18 +91,19 @@ with open('foo.txt', 'rb') as f:
 d.push('foo.sh', '/data/local/tmp', mode=0o755)
 ```
 
-Pull files
+#### Pull files
 
 ```python
 d.pull('/sdcard/tmp.txt', 'tmp.txt') 
 ```
-There seems to be permission problem for directory `/data/data`. We may use the python version of `adb shell -d shell "run-as com.xxx.xxx /data/data/com.xxx.xxx/path/to/file.txt" >file.txt`
+There seems to be a permission problem for directory `/data/data`. We may use the python version of `adb -d shell "run-as com.xxx.xxx /data/data/com.xxx.xxx/path/to/file.txt" >file.txt`
 
 ```python
+import base64
 def adb_download(device, packageName, path, output):
-	'''
-		The encoding of jsonrpc string is unknown, so explicitly choose base64
-	'''
+    '''
+    The encoding of jsonrpc string is unknown, so explicitly choose base64
+    '''
     if device == None:
         print('device is None, please provide an instance of Device')
         return
@@ -117,11 +118,10 @@ def adb_download(device, packageName, path, output):
     with open(output, 'wb') as f:
         f.write(base64.b64decode(response.output.encode('ascii')))
         print('Save to {} successfully'.format(output))
-	pass
+    pass
 ```
 
-
-Key events
+#### Key events
 
 ```python
 d.screen_on()
