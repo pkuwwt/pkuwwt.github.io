@@ -44,10 +44,13 @@ Then we run
 ```
 ~/.vnc/restart.sh
 ```
+and set the password in the prompt.
 
 Now, the vncserver is ready, and the port is `5901` by default, corresponding to the number `:1`. In our case, we only start the server at `:1`. If we start another server, say `:3`, then port `5903` is available.
 
 ## Client
 
 Any tigervnc viewer will be OK. For example, the client for windows can be downloaded from [here](https://bintray.com/tigervnc/stable/download_file?file_path=tigervnc-1.10.1.exe).
+
+Then we can connect to a server with ip `192.168.1.10` by address `192.169.1.10:5901` and the password.
 
