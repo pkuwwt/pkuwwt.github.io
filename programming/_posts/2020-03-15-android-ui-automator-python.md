@@ -107,7 +107,9 @@ def adb_download(device, packageName, path, output):
     if device == None:
         print('device is None, please provide an instance of Device')
         return
-    response = device.shell('run-as {0} cat /data/data/{0}/{1} | base64'.format(packageName, path))
+	# to maintain exit code for pipe
+	tee = '; test ${PIPESTATUS[0]} -eq 0'
+    response = device.shell('run-as {0} cat /data/data/{0}/{1} | base64'.format(packageName, path) + tee)
     if response == None:
         print('Error to dump file from device, get None response')
         return

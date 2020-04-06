@@ -5,6 +5,18 @@ tags: python programming
 title: Python使用问题集锦
 ---
 
+## Python的版本
+
+```bash
+python --version
+```
+
+```python
+import sys
+print(sys.version_info.major)
+```
+
+
 ## 关于class中的成员变量
 有一种成员变量需要特别小心，它们是直接声明在类定义中的成员变量，而非声明在`__init__`中。这种成员变量如果为对象类型(object)，则多个类实例会共享一个。
 
