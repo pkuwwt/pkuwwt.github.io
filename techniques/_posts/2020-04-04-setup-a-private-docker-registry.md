@@ -2,6 +2,7 @@
 vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
+tags: docker registry web-UI
 title: Setup a private docker registry v2 with web-ui
 ---
 
@@ -18,7 +19,7 @@ docker run -d -p 8080:5000 --name registry --restart=always registry:2
 ### Push a local image to the local registry server
 
 ```bash
-docker tag registry:2 localhost:5000/myimages/registry:2
+docker tag registry:2 localhost:8080/myimages/registry:2
 docker push localhost:8080/myimages/registry:2
 ```
 
