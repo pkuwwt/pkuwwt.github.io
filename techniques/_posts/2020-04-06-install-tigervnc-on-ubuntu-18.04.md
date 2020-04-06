@@ -7,7 +7,7 @@ title: Install tigervnc on Ubuntu18.04
 
 In this post, I will introduce how to install tighervnc on Ubuntu18.04 with LXDE desktop. LXDE is a lightwight and very clean desktop environment.
 
-## Installation of vncserver
+## Server
 
 First, we install some packages.
 ```
@@ -45,7 +45,7 @@ Then we run
 ~/.vnc/restart.sh
 ```
 
-Now, the vncserver is ready.
+Now, the vncserver is ready, and the port is `5901` by default, corresponding to the number `:1`. In our case, we only start the server at `:1`. If we start another server, say `:3`, then port `5903` is available.
 
 ## Client
 
