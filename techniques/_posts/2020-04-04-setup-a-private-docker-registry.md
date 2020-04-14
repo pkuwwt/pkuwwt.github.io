@@ -149,3 +149,31 @@ docker push localhost:8080/registry
 
 The scripts here refer to the example in `https://github.com/Joxit/docker-registry-ui/ui-as-proxy/`.
 
+## Client
+
+Assume the remote registry address is `192.168.1.12:8080`, we need a file `/etc/docker/daemon.js` to configure the local docker client.
+
+```json
+{
+	"insecure-registries": ["192.168.1.12:8080"],
+	"registry-mirrors": ["http://192.168.1.12:8080"]
+}
+```
+
+After restart with `sudo systemctl restart docker`, we can use `docker pull` now, e.g.
+```
+sudo docker pull mysql/mysql-server
+```
+
+## Issues
+
+The command `docker pull` not work for official images, like
+```
+sudo docker pull ubuntu
+```
+
+We can only 
+```
+sudo docker pull 192.168.1.12:8080/ubuntu
+```
+

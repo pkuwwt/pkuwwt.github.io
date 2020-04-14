@@ -11,7 +11,7 @@ In this post, I will introduce how to install tighervnc on Ubuntu18.04 with LXDE
 
 First, we install some packages.
 ```
-sudo apt install lxterminal lxdession ibus tigervnc-standalone-server
+sudo apt install lxterminal lxsession ibus tigervnc-standalone-server
 ```
 
 `ibus` is just an input-method engine, which is not required.
