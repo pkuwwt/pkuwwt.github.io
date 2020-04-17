@@ -2,7 +2,7 @@
 vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
-tags: android studio, android, programming, java
+tags: [android studio, android, programming, java]
 title: Recipes to use Android Studio
 ---
 

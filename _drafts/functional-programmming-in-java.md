@@ -2,7 +2,7 @@
 vim: wrap expandtab ft=markdown
 layout: blog
 comments: true
-tags: java, functional programming
+tags: [java, functional programming]
 title: Functional programming in Java
 ---
 
