@@ -90,6 +90,16 @@ We can get them manually, for example `uploaded-v2.6-node-v12.2.0-win-x64`, and 
 PKG_CACHE_PATH=. pkg -t node12.2.0-win-x64 .
 ```
 
+## Native code
+
+If there are native code for some dependencies, just put these binary files in the same directory of the output.
+
+For example, `node_modules/sqlite3/lib/binding/node-v72-darwin-x64/node_sqlite3.node`.
+
+## Minify
+
+The packaged code is not uglified and minized. We can use package `minify`.
+
 ## References
 
   * [Bundle your Node app to a single executable for Windows, Linux and OsX](https://dev.to/jochemstoel/bundle-your-node-app-to-a-single-executable-for-windows-linux-and-osx-2c89)
