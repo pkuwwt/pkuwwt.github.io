@@ -87,7 +87,7 @@ The required binaries are automatically downloaded from `https://github.com/zeit
 We can get them manually, for example `uploaded-v2.6-node-v12.2.0-win-x64`, and save it to `v2.6/node-v12.2.0-win-x64`, and then execute
 
 ```
-PKG_CACHE_PATH=. pkg -t node-v12.2.0-win-x64 .
+PKG_CACHE_PATH=. pkg -t node12.2.0-win-x64 .
 ```
 
 ## References
